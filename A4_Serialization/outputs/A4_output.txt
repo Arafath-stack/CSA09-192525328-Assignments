@@ -1,0 +1,28 @@
+===== 1. Why Connection must be transient =====
+Without 'transient' on the Connection field -> java.io.NotSerializableException: DemoTransient$LiveConnectionHandler
+
+===== 2. Versioning test: serialVersionUID = explicit =====
+Saved hostel with 2 rooms using OLD Resident class -> build/explicit/hostel.ser (370 bytes)
+  one writeObject(hostel) saved the whole graph: Hostel -> Rooms -> Residents
+Read OK with NEW Resident class. Hostel=Boys Hostel A
+  room 101: Resident{Arun, 192311001, phone=null, password=null}
+  room 101: Resident{Karthik, 192311002, phone=null, password=null}
+  room 102: Resident{Divya, 192311003, phone=null, password=null}
+  -> new field 'phone' = default null; transient 'password' = null (never stored)
+
+===== 2. Versioning test: serialVersionUID = implicit =====
+Saved hostel with 2 rooms using OLD Resident class -> build/implicit/hostel.ser (370 bytes)
+  one writeObject(hostel) saved the whole graph: Hostel -> Rooms -> Residents
+FAILED: java.io.InvalidClassException: Resident; local class incompatible: stream classdesc serialVersionUID = -2425401419167560290, local class serialVersionUID = 1839323846640557205
+
+===== 3. Java serialization vs CSV vs JSON =====
+n,format,file_bytes,save_ms,load_ms
+1000,Java serialization,45026,5.0,8.9
+1000,CSV,32890,2.8,3.7
+1000,JSON,66893,7.1,24.5
+10000,Java serialization,459026,12.7,47.4
+10000,CSV,338890,23.1,5.0
+10000,JSON,678893,27.4,95.4
+100000,Java serialization,4689026,76.8,92.0
+100000,CSV,3488890,18.5,48.0
+100000,JSON,6888893,21.7,303.1
