@@ -2,8 +2,8 @@
 
 **Name:** Yassar Arafath A  
 **Register Number:** 192525328  
-**Department:** Nxt-Gen Computing  
-**Course:** B.Tech Artificial Intelligence and Machine Learning
+**Course Code:** CSA0914  
+**Course Name:** Java
 
 ## Assignments
 
