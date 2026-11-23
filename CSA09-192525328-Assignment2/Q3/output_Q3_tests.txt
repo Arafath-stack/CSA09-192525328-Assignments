@@ -1,0 +1,30 @@
+T1   broken class, SAME object scanned twice (reference reused)     predicted=2   observed=2   (prediction OK)
+       reason: same reference has the same identity hashCode, so it lands in the same bucket and equals() is true (this==o)
+T2   broken class, two DIFFERENT objects with the same regNo        predicted=3   observed=3   (prediction OK)
+       reason: identity hashCodes differ, so HashSet looks in another bucket/compares unequal hashes and never calls equals()
+       hashCodes of two equal students: 1523554304 vs 1175962212
+T3   corrected class (hashCode from regNo), same scans as T2        predicted=2   observed=2   (prediction OK)
+       reason: equal students now share a hashCode, same bucket, equals() confirms the duplicate
+T4   broken class, 10,000 fresh-object scans of 1,000 students      predicted=10000 observed=10000 (prediction OK)
+       reason: no duplicates removed at all: every scan counts as a new student
+T5   corrected class, same 10,000 scans                             predicted=1000 observed=1000 (prediction OK)
+       reason: exactly the number of distinct regNo values
+T6   regNo changed after insertion: size of set                     predicted=1   observed=1   (prediction OK)
+       reason: the element is still stored (size unchanged) in the bucket of the OLD hash
+       contains(m)=false  contains(new student with NEW regNo)=false  contains(new student with OLD regNo)=false  remove(m)=false
+       prediction: all three contains() calls are false and remove() fails -> element is lost inside the set
+T7a  HashSet of two different students with the same name           predicted=2   observed=2   (prediction OK)
+       reason: record equals uses both fields
+T7b  TreeSet with comparator on name only (inconsistent with equals) predicted=1   observed=1   (prediction OK)
+       reason: TreeSet uses compare()==0 as 'duplicate', so the second Arun is silently dropped
+
+=== Alternatives: HashSet vs TreeSet(Comparator on regNo) vs HashMap<String,Student>  (scan = add/lookup of one ID card)
+HashSet  n=10000   unique=10000      399.5 ns/scan   structure overhead ~3 bytes per student
+TreeSet  n=10000   unique=10000      571.8 ns/scan   structure overhead ~39 bytes per student
+HashMap  n=10000   unique=10000      316.9 ns/scan   structure overhead ~0 bytes per student
+HashSet  n=100000  unique=100000     154.2 ns/scan   structure overhead ~42 bytes per student
+TreeSet  n=100000  unique=100000     752.6 ns/scan   structure overhead ~40 bytes per student
+HashMap  n=100000  unique=100000      97.3 ns/scan   structure overhead ~42 bytes per student
+HashSet  n=500000  unique=500000     127.9 ns/scan   structure overhead ~40 bytes per student
+TreeSet  n=500000  unique=500000    1763.3 ns/scan   structure overhead ~40 bytes per student
+HashMap  n=500000  unique=500000     152.3 ns/scan   structure overhead ~40 bytes per student

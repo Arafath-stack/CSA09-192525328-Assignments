@@ -1,0 +1,391 @@
+structure,operation,n,ops,rep,ms
+ArrayList,add at end (n adds),1000,1000,0,0.0455
+ArrayList,add at end (n adds),1000,1000,1,4.1080
+ArrayList,add at end (n adds),1000,1000,2,0.0552
+ArrayList,add at end (n adds),1000,1000,3,0.0416
+ArrayList,add at end (n adds),1000,1000,4,0.0439
+LinkedList,add at end (n adds),1000,1000,0,0.1276
+LinkedList,add at end (n adds),1000,1000,1,0.1303
+LinkedList,add at end (n adds),1000,1000,2,0.1518
+LinkedList,add at end (n adds),1000,1000,3,0.1258
+LinkedList,add at end (n adds),1000,1000,4,0.1253
+ArrayDeque,add at end (n adds),1000,1000,0,0.1024
+ArrayDeque,add at end (n adds),1000,1000,1,0.1111
+ArrayDeque,add at end (n adds),1000,1000,2,0.1047
+ArrayDeque,add at end (n adds),1000,1000,3,0.1035
+ArrayDeque,add at end (n adds),1000,1000,4,4.1425
+ManualArray,add at end (n adds),1000,1000,0,0.0374
+ManualArray,add at end (n adds),1000,1000,1,0.0375
+ManualArray,add at end (n adds),1000,1000,2,0.0370
+ManualArray,add at end (n adds),1000,1000,3,0.0369
+ManualArray,add at end (n adds),1000,1000,4,0.0368
+ArrayList,insert at front,1000,1000,0,0.3820
+ArrayList,insert at front,1000,1000,1,0.4515
+ArrayList,insert at front,1000,1000,2,0.4037
+ArrayList,insert at front,1000,1000,3,0.3606
+ArrayList,insert at front,1000,1000,4,0.3824
+LinkedList,insert at front,1000,1000,0,0.0492
+LinkedList,insert at front,1000,1000,1,0.0562
+LinkedList,insert at front,1000,1000,2,0.0487
+LinkedList,insert at front,1000,1000,3,0.0495
+LinkedList,insert at front,1000,1000,4,0.0447
+ArrayDeque,insert at front,1000,1000,0,0.1147
+ArrayDeque,insert at front,1000,1000,1,0.1082
+ArrayDeque,insert at front,1000,1000,2,0.1032
+ArrayDeque,insert at front,1000,1000,3,0.1058
+ArrayDeque,insert at front,1000,1000,4,0.1091
+ManualArray,insert at front,1000,1000,0,5.5315
+ManualArray,insert at front,1000,1000,1,0.7312
+ManualArray,insert at front,1000,1000,2,0.6958
+ManualArray,insert at front,1000,1000,3,0.6723
+ManualArray,insert at front,1000,1000,4,0.6826
+ArrayList,insert in middle,1000,1000,0,0.1004
+ArrayList,insert in middle,1000,1000,1,0.0971
+ArrayList,insert in middle,1000,1000,2,0.1165
+ArrayList,insert in middle,1000,1000,3,0.0941
+ArrayList,insert in middle,1000,1000,4,0.0936
+LinkedList,insert in middle,1000,1000,0,1.6830
+LinkedList,insert in middle,1000,1000,1,1.5060
+LinkedList,insert in middle,1000,1000,2,1.1839
+LinkedList,insert in middle,1000,1000,3,1.2768
+LinkedList,insert in middle,1000,1000,4,4.8589
+ManualArray,insert in middle,1000,1000,0,0.3397
+ManualArray,insert in middle,1000,1000,1,0.3457
+ManualArray,insert in middle,1000,1000,2,0.3290
+ManualArray,insert in middle,1000,1000,3,0.8501
+ManualArray,insert in middle,1000,1000,4,0.6983
+ArrayList,remove at front,1000,1000,0,0.3914
+ArrayList,remove at front,1000,1000,1,0.3475
+ArrayList,remove at front,1000,1000,2,0.3683
+ArrayList,remove at front,1000,1000,3,0.3502
+ArrayList,remove at front,1000,1000,4,0.3432
+LinkedList,remove at front,1000,1000,0,0.0464
+LinkedList,remove at front,1000,1000,1,0.0445
+LinkedList,remove at front,1000,1000,2,0.0489
+LinkedList,remove at front,1000,1000,3,0.0453
+LinkedList,remove at front,1000,1000,4,0.7650
+ArrayDeque,remove at front,1000,1000,0,0.1476
+ArrayDeque,remove at front,1000,1000,1,0.1908
+ArrayDeque,remove at front,1000,1000,2,0.1463
+ArrayDeque,remove at front,1000,1000,3,0.1459
+ArrayDeque,remove at front,1000,1000,4,0.1404
+ManualArray,remove at front,1000,1000,0,10.0221
+ManualArray,remove at front,1000,1000,1,4.1861
+ManualArray,remove at front,1000,1000,2,0.4827
+ManualArray,remove at front,1000,1000,3,0.4850
+ManualArray,remove at front,1000,1000,4,0.4473
+ArrayList,remove in middle,1000,1000,0,1.8239
+ArrayList,remove in middle,1000,1000,1,0.0881
+ArrayList,remove in middle,1000,1000,2,0.0880
+ArrayList,remove in middle,1000,1000,3,0.0900
+ArrayList,remove in middle,1000,1000,4,0.1206
+LinkedList,remove in middle,1000,1000,0,0.5834
+LinkedList,remove in middle,1000,1000,1,1.6839
+LinkedList,remove in middle,1000,1000,2,0.4664
+LinkedList,remove in middle,1000,1000,3,0.5304
+LinkedList,remove in middle,1000,1000,4,3.9069
+ArrayList,get k-th (random k),1000,1000,0,0.1379
+ArrayList,get k-th (random k),1000,1000,1,0.1275
+ArrayList,get k-th (random k),1000,1000,2,0.1677
+ArrayList,get k-th (random k),1000,1000,3,0.1183
+ArrayList,get k-th (random k),1000,1000,4,0.0836
+LinkedList,get k-th (random k),1000,1000,0,0.5042
+LinkedList,get k-th (random k),1000,1000,1,0.4954
+LinkedList,get k-th (random k),1000,1000,2,0.5085
+LinkedList,get k-th (random k),1000,1000,3,0.4748
+LinkedList,get k-th (random k),1000,1000,4,3.1525
+ManualArray,get k-th (random k),1000,1000,0,0.0564
+ManualArray,get k-th (random k),1000,1000,1,0.0564
+ManualArray,get k-th (random k),1000,1000,2,0.0561
+ManualArray,get k-th (random k),1000,1000,3,0.0558
+ManualArray,get k-th (random k),1000,1000,4,0.0556
+ArrayList,iterate (10 passes),1000,10,0,0.9481
+ArrayList,iterate (10 passes),1000,10,1,0.7967
+ArrayList,iterate (10 passes),1000,10,2,0.8066
+ArrayList,iterate (10 passes),1000,10,3,0.8117
+ArrayList,iterate (10 passes),1000,10,4,0.8183
+LinkedList,iterate (10 passes),1000,10,0,1.4451
+LinkedList,iterate (10 passes),1000,10,1,3.5941
+LinkedList,iterate (10 passes),1000,10,2,0.7150
+LinkedList,iterate (10 passes),1000,10,3,0.7038
+LinkedList,iterate (10 passes),1000,10,4,0.6866
+ArrayDeque,iterate (10 passes),1000,10,0,0.6858
+ArrayDeque,iterate (10 passes),1000,10,1,0.6825
+ArrayDeque,iterate (10 passes),1000,10,2,0.7308
+ArrayDeque,iterate (10 passes),1000,10,3,0.6817
+ArrayDeque,iterate (10 passes),1000,10,4,0.6900
+ArrayList,add at end (n adds),10000,10000,0,0.4146
+ArrayList,add at end (n adds),10000,10000,1,0.3853
+ArrayList,add at end (n adds),10000,10000,2,0.4406
+ArrayList,add at end (n adds),10000,10000,3,0.3832
+ArrayList,add at end (n adds),10000,10000,4,0.4057
+LinkedList,add at end (n adds),10000,10000,0,2.0462
+LinkedList,add at end (n adds),10000,10000,1,0.3997
+LinkedList,add at end (n adds),10000,10000,2,0.4309
+LinkedList,add at end (n adds),10000,10000,3,0.3944
+LinkedList,add at end (n adds),10000,10000,4,0.7431
+ArrayDeque,add at end (n adds),10000,10000,0,0.4403
+ArrayDeque,add at end (n adds),10000,10000,1,0.4420
+ArrayDeque,add at end (n adds),10000,10000,2,0.4344
+ArrayDeque,add at end (n adds),10000,10000,3,0.4356
+ArrayDeque,add at end (n adds),10000,10000,4,0.4826
+ManualArray,add at end (n adds),10000,10000,0,0.2969
+ManualArray,add at end (n adds),10000,10000,1,0.3348
+ManualArray,add at end (n adds),10000,10000,2,0.3037
+ManualArray,add at end (n adds),10000,10000,3,0.3111
+ManualArray,add at end (n adds),10000,10000,4,0.2934
+ArrayList,insert at front,10000,1000,0,0.3599
+ArrayList,insert at front,10000,1000,1,0.3539
+ArrayList,insert at front,10000,1000,2,0.3909
+ArrayList,insert at front,10000,1000,3,0.3563
+ArrayList,insert at front,10000,1000,4,0.3816
+LinkedList,insert at front,10000,1000,0,0.0413
+LinkedList,insert at front,10000,1000,1,0.0472
+LinkedList,insert at front,10000,1000,2,0.0425
+LinkedList,insert at front,10000,1000,3,0.0429
+LinkedList,insert at front,10000,1000,4,0.0431
+ArrayDeque,insert at front,10000,1000,0,1.0180
+ArrayDeque,insert at front,10000,1000,1,0.0320
+ArrayDeque,insert at front,10000,1000,2,0.0590
+ArrayDeque,insert at front,10000,1000,3,0.0341
+ArrayDeque,insert at front,10000,1000,4,0.0323
+ManualArray,insert at front,10000,1000,0,4.3933
+ManualArray,insert at front,10000,1000,1,4.4957
+ManualArray,insert at front,10000,1000,2,4.3157
+ManualArray,insert at front,10000,1000,3,4.1026
+ManualArray,insert at front,10000,1000,4,4.2485
+ArrayList,insert in middle,10000,1000,0,0.1980
+ArrayList,insert in middle,10000,1000,1,0.2391
+ArrayList,insert in middle,10000,1000,2,0.2003
+ArrayList,insert in middle,10000,1000,3,0.1976
+ArrayList,insert in middle,10000,1000,4,0.2238
+LinkedList,insert in middle,10000,1000,0,8.1854
+LinkedList,insert in middle,10000,1000,1,8.7408
+LinkedList,insert in middle,10000,1000,2,8.0931
+LinkedList,insert in middle,10000,1000,3,8.7317
+LinkedList,insert in middle,10000,1000,4,9.0396
+ManualArray,insert in middle,10000,1000,0,2.3382
+ManualArray,insert in middle,10000,1000,1,6.3578
+ManualArray,insert in middle,10000,1000,2,2.3471
+ManualArray,insert in middle,10000,1000,3,3.2323
+ManualArray,insert in middle,10000,1000,4,2.3355
+ArrayList,remove at front,10000,1000,0,0.3213
+ArrayList,remove at front,10000,1000,1,0.2910
+ArrayList,remove at front,10000,1000,2,0.3020
+ArrayList,remove at front,10000,1000,3,0.2915
+ArrayList,remove at front,10000,1000,4,0.2915
+LinkedList,remove at front,10000,1000,0,0.0261
+LinkedList,remove at front,10000,1000,1,0.0266
+LinkedList,remove at front,10000,1000,2,0.0265
+LinkedList,remove at front,10000,1000,3,0.0290
+LinkedList,remove at front,10000,1000,4,0.0269
+ArrayDeque,remove at front,10000,1000,0,1.3164
+ArrayDeque,remove at front,10000,1000,1,0.0275
+ArrayDeque,remove at front,10000,1000,2,0.0254
+ArrayDeque,remove at front,10000,1000,3,0.0252
+ArrayDeque,remove at front,10000,1000,4,0.0246
+ManualArray,remove at front,10000,1000,0,3.9773
+ManualArray,remove at front,10000,1000,1,4.0805
+ManualArray,remove at front,10000,1000,2,3.9869
+ManualArray,remove at front,10000,1000,3,3.9610
+ManualArray,remove at front,10000,1000,4,3.8628
+ArrayList,remove in middle,10000,1000,0,0.1829
+ArrayList,remove in middle,10000,1000,1,0.1650
+ArrayList,remove in middle,10000,1000,2,0.1704
+ArrayList,remove in middle,10000,1000,3,0.1901
+ArrayList,remove in middle,10000,1000,4,0.1662
+LinkedList,remove in middle,10000,1000,0,7.4281
+LinkedList,remove in middle,10000,1000,1,7.2844
+LinkedList,remove in middle,10000,1000,2,7.7339
+LinkedList,remove in middle,10000,1000,3,8.0910
+LinkedList,remove in middle,10000,1000,4,8.0489
+ArrayList,get k-th (random k),10000,1000,0,0.0560
+ArrayList,get k-th (random k),10000,1000,1,0.0557
+ArrayList,get k-th (random k),10000,1000,2,0.0552
+ArrayList,get k-th (random k),10000,1000,3,0.0748
+ArrayList,get k-th (random k),10000,1000,4,0.0556
+LinkedList,get k-th (random k),10000,1000,0,4.3234
+LinkedList,get k-th (random k),10000,1000,1,4.2782
+LinkedList,get k-th (random k),10000,1000,2,4.3253
+LinkedList,get k-th (random k),10000,1000,3,4.1488
+LinkedList,get k-th (random k),10000,1000,4,3.9970
+ManualArray,get k-th (random k),10000,1000,0,0.6418
+ManualArray,get k-th (random k),10000,1000,1,0.0623
+ManualArray,get k-th (random k),10000,1000,2,0.0506
+ManualArray,get k-th (random k),10000,1000,3,0.0622
+ManualArray,get k-th (random k),10000,1000,4,0.0554
+ArrayList,iterate (10 passes),10000,10,0,0.7986
+ArrayList,iterate (10 passes),10000,10,1,0.7541
+ArrayList,iterate (10 passes),10000,10,2,0.7754
+ArrayList,iterate (10 passes),10000,10,3,0.7791
+ArrayList,iterate (10 passes),10000,10,4,7.0547
+LinkedList,iterate (10 passes),10000,10,0,0.8293
+LinkedList,iterate (10 passes),10000,10,1,2.3466
+LinkedList,iterate (10 passes),10000,10,2,0.3880
+LinkedList,iterate (10 passes),10000,10,3,0.3594
+LinkedList,iterate (10 passes),10000,10,4,0.3412
+ArrayDeque,iterate (10 passes),10000,10,0,0.7417
+ArrayDeque,iterate (10 passes),10000,10,1,0.3126
+ArrayDeque,iterate (10 passes),10000,10,2,0.2737
+ArrayDeque,iterate (10 passes),10000,10,3,0.3690
+ArrayDeque,iterate (10 passes),10000,10,4,0.2803
+ArrayList,add at end (n adds),100000,100000,0,7.8667
+ArrayList,add at end (n adds),100000,100000,1,0.3779
+ArrayList,add at end (n adds),100000,100000,2,0.3949
+ArrayList,add at end (n adds),100000,100000,3,0.3825
+ArrayList,add at end (n adds),100000,100000,4,0.4253
+LinkedList,add at end (n adds),100000,100000,0,0.7070
+LinkedList,add at end (n adds),100000,100000,1,0.6730
+LinkedList,add at end (n adds),100000,100000,2,8.2564
+LinkedList,add at end (n adds),100000,100000,3,0.5974
+LinkedList,add at end (n adds),100000,100000,4,0.6226
+ArrayDeque,add at end (n adds),100000,100000,0,0.6281
+ArrayDeque,add at end (n adds),100000,100000,1,0.6183
+ArrayDeque,add at end (n adds),100000,100000,2,3.2955
+ArrayDeque,add at end (n adds),100000,100000,3,0.4568
+ArrayDeque,add at end (n adds),100000,100000,4,2.3136
+ManualArray,add at end (n adds),100000,100000,0,0.4216
+ManualArray,add at end (n adds),100000,100000,1,0.3618
+ManualArray,add at end (n adds),100000,100000,2,0.3830
+ManualArray,add at end (n adds),100000,100000,3,0.3763
+ManualArray,add at end (n adds),100000,100000,4,0.3923
+ArrayList,insert at front,100000,1000,0,7.7586
+ArrayList,insert at front,100000,1000,1,8.0969
+ArrayList,insert at front,100000,1000,2,8.6732
+ArrayList,insert at front,100000,1000,3,8.5157
+ArrayList,insert at front,100000,1000,4,8.5086
+LinkedList,insert at front,100000,1000,0,0.0350
+LinkedList,insert at front,100000,1000,1,0.0367
+LinkedList,insert at front,100000,1000,2,0.0361
+LinkedList,insert at front,100000,1000,3,0.0369
+LinkedList,insert at front,100000,1000,4,0.0362
+ArrayDeque,insert at front,100000,1000,0,0.0340
+ArrayDeque,insert at front,100000,1000,1,0.0337
+ArrayDeque,insert at front,100000,1000,2,0.0344
+ArrayDeque,insert at front,100000,1000,3,0.0337
+ArrayDeque,insert at front,100000,1000,4,0.0333
+ManualArray,insert at front,100000,1000,0,43.8279
+ManualArray,insert at front,100000,1000,1,43.3014
+ManualArray,insert at front,100000,1000,2,45.3096
+ManualArray,insert at front,100000,1000,3,44.9554
+ManualArray,insert at front,100000,1000,4,45.1119
+ArrayList,insert in middle,100000,1000,0,4.3992
+ArrayList,insert in middle,100000,1000,1,4.4101
+ArrayList,insert in middle,100000,1000,2,4.2804
+ArrayList,insert in middle,100000,1000,3,4.2954
+ArrayList,insert in middle,100000,1000,4,4.2800
+LinkedList,insert in middle,100000,1000,0,83.2548
+LinkedList,insert in middle,100000,1000,1,99.7359
+LinkedList,insert in middle,100000,1000,2,81.8189
+LinkedList,insert in middle,100000,1000,3,81.8748
+LinkedList,insert in middle,100000,1000,4,90.6079
+ManualArray,insert in middle,100000,1000,0,23.1261
+ManualArray,insert in middle,100000,1000,1,23.3650
+ManualArray,insert in middle,100000,1000,2,21.6739
+ManualArray,insert in middle,100000,1000,3,21.2724
+ManualArray,insert in middle,100000,1000,4,21.4400
+ArrayList,remove at front,100000,1000,0,8.3939
+ArrayList,remove at front,100000,1000,1,8.8392
+ArrayList,remove at front,100000,1000,2,8.6107
+ArrayList,remove at front,100000,1000,3,8.7709
+ArrayList,remove at front,100000,1000,4,8.6655
+LinkedList,remove at front,100000,1000,0,0.0324
+LinkedList,remove at front,100000,1000,1,0.0322
+LinkedList,remove at front,100000,1000,2,0.0374
+LinkedList,remove at front,100000,1000,3,0.0290
+LinkedList,remove at front,100000,1000,4,0.0339
+ArrayDeque,remove at front,100000,1000,0,0.0284
+ArrayDeque,remove at front,100000,1000,1,0.0305
+ArrayDeque,remove at front,100000,1000,2,0.0321
+ArrayDeque,remove at front,100000,1000,3,0.0498
+ArrayDeque,remove at front,100000,1000,4,0.0360
+ManualArray,remove at front,100000,1000,0,56.5362
+ManualArray,remove at front,100000,1000,1,44.4640
+ManualArray,remove at front,100000,1000,2,43.6812
+ManualArray,remove at front,100000,1000,3,43.1211
+ManualArray,remove at front,100000,1000,4,41.9390
+ArrayList,remove in middle,100000,1000,0,4.4014
+ArrayList,remove in middle,100000,1000,1,4.2235
+ArrayList,remove in middle,100000,1000,2,4.2351
+ArrayList,remove in middle,100000,1000,3,4.2961
+ArrayList,remove in middle,100000,1000,4,4.3612
+LinkedList,remove in middle,100000,1000,0,81.6097
+LinkedList,remove in middle,100000,1000,1,86.5101
+LinkedList,remove in middle,100000,1000,2,86.3402
+LinkedList,remove in middle,100000,1000,3,84.9552
+LinkedList,remove in middle,100000,1000,4,85.0343
+ArrayList,get k-th (random k),100000,1000,0,0.0787
+ArrayList,get k-th (random k),100000,1000,1,0.0913
+ArrayList,get k-th (random k),100000,1000,2,0.1023
+ArrayList,get k-th (random k),100000,1000,3,0.0951
+ArrayList,get k-th (random k),100000,1000,4,0.0903
+LinkedList,get k-th (random k),100000,1000,0,43.6009
+LinkedList,get k-th (random k),100000,1000,1,47.9802
+LinkedList,get k-th (random k),100000,1000,2,48.5563
+LinkedList,get k-th (random k),100000,1000,3,43.5568
+LinkedList,get k-th (random k),100000,1000,4,43.6432
+ManualArray,get k-th (random k),100000,1000,0,0.0726
+ManualArray,get k-th (random k),100000,1000,1,0.0571
+ManualArray,get k-th (random k),100000,1000,2,0.0553
+ManualArray,get k-th (random k),100000,1000,3,0.0540
+ManualArray,get k-th (random k),100000,1000,4,0.0625
+ArrayList,iterate (10 passes),100000,10,0,0.9531
+ArrayList,iterate (10 passes),100000,10,1,1.1804
+ArrayList,iterate (10 passes),100000,10,2,1.0250
+ArrayList,iterate (10 passes),100000,10,3,1.0295
+ArrayList,iterate (10 passes),100000,10,4,0.9321
+LinkedList,iterate (10 passes),100000,10,0,2.9113
+LinkedList,iterate (10 passes),100000,10,1,2.1154
+LinkedList,iterate (10 passes),100000,10,2,2.1527
+LinkedList,iterate (10 passes),100000,10,3,2.0091
+LinkedList,iterate (10 passes),100000,10,4,1.9997
+ArrayDeque,iterate (10 passes),100000,10,0,1.0108
+ArrayDeque,iterate (10 passes),100000,10,1,0.9838
+ArrayDeque,iterate (10 passes),100000,10,2,0.9903
+ArrayDeque,iterate (10 passes),100000,10,3,0.9586
+ArrayDeque,iterate (10 passes),100000,10,4,0.9480
+ArrayList,UpNext 20000 ops,1000,20000,0,6.5922
+ArrayList,UpNext 20000 ops,1000,20000,1,4.6273
+ArrayList,UpNext 20000 ops,1000,20000,2,2.5645
+ArrayList,UpNext 20000 ops,1000,20000,3,1.7137
+ArrayList,UpNext 20000 ops,1000,20000,4,6.5384
+LinkedList,UpNext 20000 ops,1000,20000,0,0.8609
+LinkedList,UpNext 20000 ops,1000,20000,1,0.7921
+LinkedList,UpNext 20000 ops,1000,20000,2,0.9750
+LinkedList,UpNext 20000 ops,1000,20000,3,0.1594
+LinkedList,UpNext 20000 ops,1000,20000,4,1.9855
+ArrayDeque,UpNext 20000 ops,1000,20000,0,0.8229
+ArrayDeque,UpNext 20000 ops,1000,20000,1,0.8017
+ArrayDeque,UpNext 20000 ops,1000,20000,2,0.7987
+ArrayDeque,UpNext 20000 ops,1000,20000,3,0.2250
+ArrayDeque,UpNext 20000 ops,1000,20000,4,3.7315
+ArrayList,UpNext 20000 ops,10000,20000,0,6.0623
+ArrayList,UpNext 20000 ops,10000,20000,1,6.0876
+ArrayList,UpNext 20000 ops,10000,20000,2,6.0794
+ArrayList,UpNext 20000 ops,10000,20000,3,5.5048
+ArrayList,UpNext 20000 ops,10000,20000,4,6.0065
+LinkedList,UpNext 20000 ops,10000,20000,0,0.1768
+LinkedList,UpNext 20000 ops,10000,20000,1,0.2241
+LinkedList,UpNext 20000 ops,10000,20000,2,0.2005
+LinkedList,UpNext 20000 ops,10000,20000,3,0.1714
+LinkedList,UpNext 20000 ops,10000,20000,4,0.1961
+ArrayDeque,UpNext 20000 ops,10000,20000,0,0.0574
+ArrayDeque,UpNext 20000 ops,10000,20000,1,0.0406
+ArrayDeque,UpNext 20000 ops,10000,20000,2,0.0429
+ArrayDeque,UpNext 20000 ops,10000,20000,3,0.0431
+ArrayDeque,UpNext 20000 ops,10000,20000,4,0.0783
+ArrayList,UpNext 20000 ops,100000,20000,0,102.3975
+ArrayList,UpNext 20000 ops,100000,20000,1,103.2308
+ArrayList,UpNext 20000 ops,100000,20000,2,104.7564
+ArrayList,UpNext 20000 ops,100000,20000,3,115.4177
+ArrayList,UpNext 20000 ops,100000,20000,4,113.0363
+LinkedList,UpNext 20000 ops,100000,20000,0,0.1118
+LinkedList,UpNext 20000 ops,100000,20000,1,0.0713
+LinkedList,UpNext 20000 ops,100000,20000,2,0.0781
+LinkedList,UpNext 20000 ops,100000,20000,3,0.0830
+LinkedList,UpNext 20000 ops,100000,20000,4,0.0762
+ArrayDeque,UpNext 20000 ops,100000,20000,0,0.0465
+ArrayDeque,UpNext 20000 ops,100000,20000,1,0.0376
+ArrayDeque,UpNext 20000 ops,100000,20000,2,0.0364
+ArrayDeque,UpNext 20000 ops,100000,20000,3,0.0394
+ArrayDeque,UpNext 20000 ops,100000,20000,4,0.0480

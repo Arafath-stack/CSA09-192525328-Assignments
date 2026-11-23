@@ -1,0 +1,42 @@
+Arrival order : Ravi(3) Meena(1) John(3) Asha(5) Kumar(1) Lata(2) Divya(2) Arun(4)
+Hand-worked treatment order : Meena Kumar Lata Divya Ravi John Arun Asha
+PriorityQueue printed directly (heap array, NOT treatment order): [Case[name=Meena, severity=1, seq=1, arrivalMinute=1], Case[name=Kumar, severity=1, seq=4, arrivalMinute=4], Case[name=Lata, severity=2, seq=5, arrivalMinute=5], Case[name=Arun, severity=4, seq=7, arrivalMinute=7], Case[name=Ravi, severity=3, seq=0, arrivalMinute=0], Case[name=John, severity=3, seq=2, arrivalMinute=2], Case[name=Divya, severity=2, seq=6, arrivalMinute=6], Case[name=Asha, severity=5, seq=3, arrivalMinute=3]]
+Waiting list, sorted copy for display : [Case[name=Meena, severity=1, seq=1, arrivalMinute=1], Case[name=Kumar, severity=1, seq=4, arrivalMinute=4], Case[name=Lata, severity=2, seq=5, arrivalMinute=5], Case[name=Divya, severity=2, seq=6, arrivalMinute=6], Case[name=Ravi, severity=3, seq=0, arrivalMinute=0], Case[name=John, severity=3, seq=2, arrivalMinute=2], Case[name=Arun, severity=4, seq=7, arrivalMinute=7], Case[name=Asha, severity=5, seq=3, arrivalMinute=3]]
+Program treatment order     : Meena Kumar Lata Divya Ravi John Arun Asha   matches hand result: true
+
+=== Growth: n admits then n serves (random severity 1-5). Mean of 5 runs, microseconds per operation
+  PriorityQueue      n=1000     admit      0.259 us/op   serve      0.245 us/op
+  Sorted LinkedList  n=1000     admit     10.609 us/op   serve      0.030 us/op
+  5 FIFO queues      n=1000     admit      0.054 us/op   serve      0.178 us/op
+  PriorityQueue      n=10000    admit      0.064 us/op   serve      0.340 us/op
+  Sorted LinkedList  n=10000    admit     18.567 us/op   serve      0.007 us/op
+  5 FIFO queues      n=10000    admit      0.071 us/op   serve      0.259 us/op
+  PriorityQueue      n=40000    admit      0.060 us/op   serve      0.495 us/op
+  Sorted LinkedList  n=40000    admit    152.527 us/op   serve      0.023 us/op
+  5 FIFO queues      n=40000    admit      0.011 us/op   serve      0.008 us/op
+  PriorityQueue      n=100000   admit      0.036 us/op   serve      0.235 us/op
+  5 FIFO queues      n=100000   admit      0.010 us/op   serve      0.008 us/op
+  PriorityQueue      n=1000000  admit      0.071 us/op   serve      0.362 us/op
+  5 FIFO queues      n=1000000  admit      0.071 us/op   serve      0.007 us/op
+
+=== Starvation simulation: 2,400 minutes, 1.1 arrivals per minute (mostly severe), one doctor serves 1 patient per minute
+  Rule: STRICT priority
+    S1: served  368  mean wait     0.0 min  max wait     1 min | still waiting at the end    0 (oldest has waited 0 min)
+    S2: served  626  mean wait     0.1 min  max wait     3 min | still waiting at the end    0 (oldest has waited 0 min)
+    S3: served  665  mean wait     0.3 min  max wait     7 min | still waiting at the end    1 (oldest has waited 1 min)
+    S4: served  542  mean wait     1.7 min  max wait    24 min | still waiting at the end    0 (oldest has waited 0 min)
+    S5: served  199  mean wait   686.9 min  max wait  1312 min | still waiting at the end  239 (oldest has waited 1294 min)
+  Rule: FAIR (earliest deadline for all)
+    S1: served  350  mean wait    66.2 min  max wait   173 min | still waiting at the end   18 (oldest has waited 166 min)
+    S2: served  571  mean wait    80.0 min  max wait   189 min | still waiting at the end   55 (oldest has waited 182 min)
+    S3: served  615  mean wait    95.0 min  max wait   205 min | still waiting at the end   51 (oldest has waited 193 min)
+    S4: served  486  mean wait   129.4 min  max wait   232 min | still waiting at the end   56 (oldest has waited 226 min)
+    S5: served  378  mean wait   184.5 min  max wait   291 min | still waiting at the end   60 (oldest has waited 282 min)
+  Rule: HYBRID (S1 always first, deadline for S2-S5)
+    S1: served  368  mean wait     0.0 min  max wait     1 min | still waiting at the end    0 (oldest has waited 0 min)
+    S2: served  566  mean wait    91.0 min  max wait   208 min | still waiting at the end   60 (oldest has waited 197 min)
+    S3: served  610  mean wait   106.0 min  max wait   224 min | still waiting at the end   56 (oldest has waited 208 min)
+    S4: served  481  mean wait   141.1 min  max wait   252 min | still waiting at the end   61 (oldest has waited 239 min)
+    S5: served  375  mean wait   195.8 min  max wait   312 min | still waiting at the end   63 (oldest has waited 301 min)
+
+  (checksum 6075301941000)

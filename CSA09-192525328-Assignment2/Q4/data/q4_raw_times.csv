@@ -1,0 +1,361 @@
+structure,measure,n,rep,ms
+HashMap,build (n puts),1000,0,3.1680
+HashMap,build (n puts),1000,1,0.2473
+HashMap,build (n puts),1000,2,1.0130
+HashMap,build (n puts),1000,3,3.2243
+HashMap,build (n puts),1000,4,0.1945
+HashMap,100000 lookups,1000,0,2.0909
+HashMap,100000 lookups,1000,1,5.9404
+HashMap,100000 lookups,1000,2,1.6765
+HashMap,100000 lookups,1000,3,1.6100
+HashMap,100000 lookups,1000,4,1.5304
+HashMap,report code order,1000,0,1.6139
+HashMap,report code order,1000,1,0.8124
+HashMap,report code order,1000,2,0.3167
+HashMap,report code order,1000,3,0.3402
+HashMap,report code order,1000,4,0.3210
+TreeMap,build (n puts),1000,0,0.7553
+TreeMap,build (n puts),1000,1,0.6753
+TreeMap,build (n puts),1000,2,0.6946
+TreeMap,build (n puts),1000,3,0.6942
+TreeMap,build (n puts),1000,4,0.6959
+TreeMap,100000 lookups,1000,0,18.4121
+TreeMap,100000 lookups,1000,1,13.0674
+TreeMap,100000 lookups,1000,2,13.2053
+TreeMap,100000 lookups,1000,3,13.5630
+TreeMap,100000 lookups,1000,4,13.1564
+TreeMap,report code order,1000,0,0.1069
+TreeMap,report code order,1000,1,0.1421
+TreeMap,report code order,1000,2,0.1459
+TreeMap,report code order,1000,3,0.1796
+TreeMap,report code order,1000,4,3.8590
+LinkedHashMap,build (n puts),1000,0,0.4515
+LinkedHashMap,build (n puts),1000,1,0.3454
+LinkedHashMap,build (n puts),1000,2,0.3776
+LinkedHashMap,build (n puts),1000,3,0.4118
+LinkedHashMap,build (n puts),1000,4,0.3808
+LinkedHashMap,100000 lookups,1000,0,6.3995
+LinkedHashMap,100000 lookups,1000,1,1.5462
+LinkedHashMap,100000 lookups,1000,2,5.5584
+LinkedHashMap,100000 lookups,1000,3,1.5191
+LinkedHashMap,100000 lookups,1000,4,2.3867
+LinkedHashMap,report code order,1000,0,0.3250
+LinkedHashMap,report code order,1000,1,0.2704
+LinkedHashMap,report code order,1000,2,0.2622
+LinkedHashMap,report code order,1000,3,0.9268
+LinkedHashMap,report code order,1000,4,4.7144
+LinkedHashMap,report insertion order,1000,0,0.0176
+LinkedHashMap,report insertion order,1000,1,0.0189
+LinkedHashMap,report insertion order,1000,2,0.0186
+LinkedHashMap,report insertion order,1000,3,0.0190
+LinkedHashMap,report insertion order,1000,4,0.0190
+Hashtable,build (n puts),1000,0,0.3839
+Hashtable,build (n puts),1000,1,0.3201
+Hashtable,build (n puts),1000,2,0.3146
+Hashtable,build (n puts),1000,3,0.3512
+Hashtable,build (n puts),1000,4,0.3246
+Hashtable,100000 lookups,1000,0,6.3794
+Hashtable,100000 lookups,1000,1,2.1894
+Hashtable,100000 lookups,1000,2,3.9325
+Hashtable,100000 lookups,1000,3,2.4278
+Hashtable,100000 lookups,1000,4,2.4032
+Hashtable,report code order,1000,0,0.5222
+Hashtable,report code order,1000,1,0.3786
+Hashtable,report code order,1000,2,3.5210
+Hashtable,report code order,1000,3,0.4322
+Hashtable,report code order,1000,4,0.3766
+HashMap+ArrayList,report insertion order,1000,0,0.0006
+HashMap+ArrayList,report insertion order,1000,1,0.0005
+HashMap+ArrayList,report insertion order,1000,2,0.0004
+HashMap+ArrayList,report insertion order,1000,3,0.0004
+HashMap+ArrayList,report insertion order,1000,4,0.0003
+SortedArray,build (sort n),1000,0,3.6569
+SortedArray,build (sort n),1000,1,0.7097
+SortedArray,build (sort n),1000,2,0.9360
+SortedArray,build (sort n),1000,3,0.5060
+SortedArray,build (sort n),1000,4,1.4504
+SortedArray,100000 lookups,1000,0,27.7200
+SortedArray,100000 lookups,1000,1,14.9726
+SortedArray,100000 lookups,1000,2,14.4286
+SortedArray,100000 lookups,1000,3,16.1415
+SortedArray,100000 lookups,1000,4,17.5880
+SortedArray,report code order,1000,0,0.0426
+SortedArray,report code order,1000,1,0.0415
+SortedArray,report code order,1000,2,0.0412
+SortedArray,report code order,1000,3,0.0444
+SortedArray,report code order,1000,4,0.0416
+SortedArray,1000 insertions,1000,0,3.4952
+SortedArray,1000 insertions,1000,1,7.2431
+SortedArray,1000 insertions,1000,2,9.2300
+SortedArray,1000 insertions,1000,3,2.6751
+SortedArray,1000 insertions,1000,4,7.5295
+HashMap,build (n puts),10000,0,6.4166
+HashMap,build (n puts),10000,1,2.7825
+HashMap,build (n puts),10000,2,3.9465
+HashMap,build (n puts),10000,3,4.4747
+HashMap,build (n puts),10000,4,0.7114
+HashMap,100000 lookups,10000,0,2.6389
+HashMap,100000 lookups,10000,1,6.8302
+HashMap,100000 lookups,10000,2,6.7576
+HashMap,100000 lookups,10000,3,2.5938
+HashMap,100000 lookups,10000,4,6.6385
+HashMap,report code order,10000,0,7.9273
+HashMap,report code order,10000,1,6.6783
+HashMap,report code order,10000,2,2.0672
+HashMap,report code order,10000,3,4.4319
+HashMap,report code order,10000,4,6.3940
+TreeMap,build (n puts),10000,0,8.2194
+TreeMap,build (n puts),10000,1,7.1781
+TreeMap,build (n puts),10000,2,7.3163
+TreeMap,build (n puts),10000,3,7.3069
+TreeMap,build (n puts),10000,4,3.1839
+TreeMap,100000 lookups,10000,0,33.0997
+TreeMap,100000 lookups,10000,1,33.7689
+TreeMap,100000 lookups,10000,2,33.8930
+TreeMap,100000 lookups,10000,3,35.2592
+TreeMap,100000 lookups,10000,4,34.4057
+TreeMap,report code order,10000,0,0.7123
+TreeMap,report code order,10000,1,0.6953
+TreeMap,report code order,10000,2,0.9920
+TreeMap,report code order,10000,3,1.6698
+TreeMap,report code order,10000,4,0.3080
+LinkedHashMap,build (n puts),10000,0,0.6182
+LinkedHashMap,build (n puts),10000,1,0.5991
+LinkedHashMap,build (n puts),10000,2,0.5675
+LinkedHashMap,build (n puts),10000,3,0.5858
+LinkedHashMap,build (n puts),10000,4,0.5582
+LinkedHashMap,100000 lookups,10000,0,1.7416
+LinkedHashMap,100000 lookups,10000,1,3.0405
+LinkedHashMap,100000 lookups,10000,2,1.7317
+LinkedHashMap,100000 lookups,10000,3,1.7222
+LinkedHashMap,100000 lookups,10000,4,1.8265
+LinkedHashMap,report code order,10000,0,9.7275
+LinkedHashMap,report code order,10000,1,9.5198
+LinkedHashMap,report code order,10000,2,12.0581
+LinkedHashMap,report code order,10000,3,10.1301
+LinkedHashMap,report code order,10000,4,14.1869
+LinkedHashMap,report insertion order,10000,0,0.0430
+LinkedHashMap,report insertion order,10000,1,0.0428
+LinkedHashMap,report insertion order,10000,2,0.0410
+LinkedHashMap,report insertion order,10000,3,0.0676
+LinkedHashMap,report insertion order,10000,4,0.0423
+Hashtable,build (n puts),10000,0,0.7993
+Hashtable,build (n puts),10000,1,0.8054
+Hashtable,build (n puts),10000,2,9.7891
+Hashtable,build (n puts),10000,3,0.6233
+Hashtable,build (n puts),10000,4,0.6713
+Hashtable,100000 lookups,10000,0,6.5675
+Hashtable,100000 lookups,10000,1,6.4845
+Hashtable,100000 lookups,10000,2,2.3668
+Hashtable,100000 lookups,10000,3,6.4414
+Hashtable,100000 lookups,10000,4,2.1783
+Hashtable,report code order,10000,0,1.1857
+Hashtable,report code order,10000,1,5.9399
+Hashtable,report code order,10000,2,1.2610
+Hashtable,report code order,10000,3,1.1577
+Hashtable,report code order,10000,4,1.1976
+HashMap+ArrayList,report insertion order,10000,0,0.0003
+HashMap+ArrayList,report insertion order,10000,1,0.0004
+HashMap+ArrayList,report insertion order,10000,2,0.0004
+HashMap+ArrayList,report insertion order,10000,3,0.0003
+HashMap+ArrayList,report insertion order,10000,4,0.0004
+SortedArray,build (sort n),10000,0,8.2168
+SortedArray,build (sort n),10000,1,7.5612
+SortedArray,build (sort n),10000,2,7.6853
+SortedArray,build (sort n),10000,3,7.5559
+SortedArray,build (sort n),10000,4,7.6999
+SortedArray,100000 lookups,10000,0,48.9550
+SortedArray,100000 lookups,10000,1,33.0199
+SortedArray,100000 lookups,10000,2,24.7301
+SortedArray,100000 lookups,10000,3,24.0781
+SortedArray,100000 lookups,10000,4,24.6521
+SortedArray,report code order,10000,0,0.3290
+SortedArray,report code order,10000,1,0.3451
+SortedArray,report code order,10000,2,0.3282
+SortedArray,report code order,10000,3,0.3278
+SortedArray,report code order,10000,4,0.6647
+SortedArray,1000 insertions,10000,0,6.5381
+SortedArray,1000 insertions,10000,1,2.5210
+SortedArray,1000 insertions,10000,2,6.5316
+SortedArray,1000 insertions,10000,3,2.3234
+SortedArray,1000 insertions,10000,4,6.5207
+HashMap,build (n puts),100000,0,8.6342
+HashMap,build (n puts),100000,1,17.3734
+HashMap,build (n puts),100000,2,10.7594
+HashMap,build (n puts),100000,3,13.4637
+HashMap,build (n puts),100000,4,9.2191
+HashMap,100000 lookups,100000,0,7.0252
+HashMap,100000 lookups,100000,1,2.7417
+HashMap,100000 lookups,100000,2,6.2285
+HashMap,100000 lookups,100000,3,6.7307
+HashMap,100000 lookups,100000,4,2.7300
+HashMap,report code order,100000,0,63.9110
+HashMap,report code order,100000,1,53.6515
+HashMap,report code order,100000,2,50.4519
+HashMap,report code order,100000,3,70.5055
+HashMap,report code order,100000,4,90.6582
+TreeMap,build (n puts),100000,0,117.5826
+TreeMap,build (n puts),100000,1,139.8142
+TreeMap,build (n puts),100000,2,115.3843
+TreeMap,build (n puts),100000,3,142.2397
+TreeMap,build (n puts),100000,4,150.2091
+TreeMap,100000 lookups,100000,0,66.5923
+TreeMap,100000 lookups,100000,1,64.9022
+TreeMap,100000 lookups,100000,2,62.1841
+TreeMap,100000 lookups,100000,3,61.4889
+TreeMap,100000 lookups,100000,4,61.9270
+TreeMap,report code order,100000,0,38.1901
+TreeMap,report code order,100000,1,24.3296
+TreeMap,report code order,100000,2,8.5210
+TreeMap,report code order,100000,3,28.8315
+TreeMap,report code order,100000,4,30.3692
+LinkedHashMap,build (n puts),100000,0,14.5215
+LinkedHashMap,build (n puts),100000,1,23.4893
+LinkedHashMap,build (n puts),100000,2,6.6004
+LinkedHashMap,build (n puts),100000,3,6.1188
+LinkedHashMap,build (n puts),100000,4,16.2402
+LinkedHashMap,100000 lookups,100000,0,3.5002
+LinkedHashMap,100000 lookups,100000,1,3.4092
+LinkedHashMap,100000 lookups,100000,2,3.9195
+LinkedHashMap,100000 lookups,100000,3,3.8803
+LinkedHashMap,100000 lookups,100000,4,3.2799
+LinkedHashMap,report code order,100000,0,182.6005
+LinkedHashMap,report code order,100000,1,55.8758
+LinkedHashMap,report code order,100000,2,39.8960
+LinkedHashMap,report code order,100000,3,39.0661
+LinkedHashMap,report code order,100000,4,40.6463
+LinkedHashMap,report insertion order,100000,0,0.8357
+LinkedHashMap,report insertion order,100000,1,0.3705
+LinkedHashMap,report insertion order,100000,2,0.3657
+LinkedHashMap,report insertion order,100000,3,0.3314
+LinkedHashMap,report insertion order,100000,4,0.3293
+Hashtable,build (n puts),100000,0,4.6388
+Hashtable,build (n puts),100000,1,4.8945
+Hashtable,build (n puts),100000,2,4.5750
+Hashtable,build (n puts),100000,3,8.1908
+Hashtable,build (n puts),100000,4,4.5535
+Hashtable,100000 lookups,100000,0,4.2898
+Hashtable,100000 lookups,100000,1,4.1355
+Hashtable,100000 lookups,100000,2,4.0842
+Hashtable,100000 lookups,100000,3,4.1153
+Hashtable,100000 lookups,100000,4,4.2753
+Hashtable,report code order,100000,0,14.8025
+Hashtable,report code order,100000,1,15.0558
+Hashtable,report code order,100000,2,14.6991
+Hashtable,report code order,100000,3,21.4311
+Hashtable,report code order,100000,4,14.6531
+HashMap+ArrayList,report insertion order,100000,0,0.0008
+HashMap+ArrayList,report insertion order,100000,1,0.0008
+HashMap+ArrayList,report insertion order,100000,2,0.0015
+HashMap+ArrayList,report insertion order,100000,3,0.0008
+HashMap+ArrayList,report insertion order,100000,4,0.0006
+SortedArray,build (sort n),100000,0,232.6580
+SortedArray,build (sort n),100000,1,235.8985
+SortedArray,build (sort n),100000,2,126.8161
+SortedArray,build (sort n),100000,3,96.6795
+SortedArray,build (sort n),100000,4,47.7862
+SortedArray,100000 lookups,100000,0,65.6695
+SortedArray,100000 lookups,100000,1,66.7437
+SortedArray,100000 lookups,100000,2,64.3964
+SortedArray,100000 lookups,100000,3,66.6480
+SortedArray,100000 lookups,100000,4,69.9808
+SortedArray,report code order,100000,0,0.1286
+SortedArray,report code order,100000,1,0.1234
+SortedArray,report code order,100000,2,0.1159
+SortedArray,report code order,100000,3,0.1149
+SortedArray,report code order,100000,4,0.1163
+SortedArray,1000 insertions,100000,0,12.7998
+SortedArray,1000 insertions,100000,1,9.9038
+SortedArray,1000 insertions,100000,2,12.9929
+SortedArray,1000 insertions,100000,3,10.7122
+SortedArray,1000 insertions,100000,4,13.0085
+HashMap,build (n puts),500000,0,144.6322
+HashMap,build (n puts),500000,1,32.7541
+HashMap,build (n puts),500000,2,68.0238
+HashMap,build (n puts),500000,3,27.9116
+HashMap,build (n puts),500000,4,42.1923
+HashMap,100000 lookups,500000,0,5.8071
+HashMap,100000 lookups,500000,1,5.0781
+HashMap,100000 lookups,500000,2,4.1886
+HashMap,100000 lookups,500000,3,4.1312
+HashMap,100000 lookups,500000,4,3.9375
+HashMap,report code order,500000,0,233.2219
+HashMap,report code order,500000,1,239.9329
+HashMap,report code order,500000,2,195.0639
+HashMap,report code order,500000,3,200.9861
+HashMap,report code order,500000,4,204.1358
+TreeMap,build (n puts),500000,0,683.7495
+TreeMap,build (n puts),500000,1,597.0209
+TreeMap,build (n puts),500000,2,679.2587
+TreeMap,build (n puts),500000,3,877.1147
+TreeMap,build (n puts),500000,4,588.8641
+TreeMap,100000 lookups,500000,0,141.9662
+TreeMap,100000 lookups,500000,1,132.3766
+TreeMap,100000 lookups,500000,2,136.8946
+TreeMap,100000 lookups,500000,3,129.9502
+TreeMap,100000 lookups,500000,4,128.9815
+TreeMap,report code order,500000,0,131.1134
+TreeMap,report code order,500000,1,28.0456
+TreeMap,report code order,500000,2,27.8880
+TreeMap,report code order,500000,3,27.4454
+TreeMap,report code order,500000,4,27.9909
+LinkedHashMap,build (n puts),500000,0,77.3486
+LinkedHashMap,build (n puts),500000,1,31.7173
+LinkedHashMap,build (n puts),500000,2,250.2814
+LinkedHashMap,build (n puts),500000,3,34.6916
+LinkedHashMap,build (n puts),500000,4,101.0189
+LinkedHashMap,100000 lookups,500000,0,6.6324
+LinkedHashMap,100000 lookups,500000,1,5.5055
+LinkedHashMap,100000 lookups,500000,2,4.6824
+LinkedHashMap,100000 lookups,500000,3,4.5320
+LinkedHashMap,100000 lookups,500000,4,4.2212
+LinkedHashMap,report code order,500000,0,400.3325
+LinkedHashMap,report code order,500000,1,404.1323
+LinkedHashMap,report code order,500000,2,335.6251
+LinkedHashMap,report code order,500000,3,350.4305
+LinkedHashMap,report code order,500000,4,458.4112
+LinkedHashMap,report insertion order,500000,0,62.8345
+LinkedHashMap,report insertion order,500000,1,63.6326
+LinkedHashMap,report insertion order,500000,2,62.8519
+LinkedHashMap,report insertion order,500000,3,63.3001
+LinkedHashMap,report insertion order,500000,4,62.4608
+Hashtable,build (n puts),500000,0,36.7731
+Hashtable,build (n puts),500000,1,47.9614
+Hashtable,build (n puts),500000,2,35.3367
+Hashtable,build (n puts),500000,3,294.2150
+Hashtable,build (n puts),500000,4,46.3515
+Hashtable,100000 lookups,500000,0,9.3208
+Hashtable,100000 lookups,500000,1,8.6452
+Hashtable,100000 lookups,500000,2,8.1123
+Hashtable,100000 lookups,500000,3,7.7558
+Hashtable,100000 lookups,500000,4,7.5621
+Hashtable,report code order,500000,0,208.0545
+Hashtable,report code order,500000,1,226.1810
+Hashtable,report code order,500000,2,176.5861
+Hashtable,report code order,500000,3,179.3265
+Hashtable,report code order,500000,4,187.9608
+HashMap+ArrayList,report insertion order,500000,0,0.0029
+HashMap+ArrayList,report insertion order,500000,1,0.0025
+HashMap+ArrayList,report insertion order,500000,2,0.0018
+HashMap+ArrayList,report insertion order,500000,3,0.0018
+HashMap+ArrayList,report insertion order,500000,4,0.0008
+SortedArray,build (sort n),500000,0,488.3789
+SortedArray,build (sort n),500000,1,631.2649
+SortedArray,build (sort n),500000,2,468.0951
+SortedArray,build (sort n),500000,3,445.7789
+SortedArray,build (sort n),500000,4,461.9652
+SortedArray,100000 lookups,500000,0,148.8724
+SortedArray,100000 lookups,500000,1,149.0229
+SortedArray,100000 lookups,500000,2,154.1053
+SortedArray,100000 lookups,500000,3,149.2205
+SortedArray,100000 lookups,500000,4,151.6707
+SortedArray,report code order,500000,0,1.2703
+SortedArray,report code order,500000,1,1.2321
+SortedArray,report code order,500000,2,1.1952
+SortedArray,report code order,500000,3,1.2386
+SortedArray,report code order,500000,4,1.2346
+SortedArray,1000 insertions,500000,0,49.0493
+SortedArray,1000 insertions,500000,1,41.4012
+SortedArray,1000 insertions,500000,2,42.5906
+SortedArray,1000 insertions,500000,3,40.8394
+SortedArray,1000 insertions,500000,4,41.7897

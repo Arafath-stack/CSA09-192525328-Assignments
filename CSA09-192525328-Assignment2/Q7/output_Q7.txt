@@ -1,0 +1,37 @@
+design                            n      R |     total ms    comparisons  elements copied
+V1 HashMap + sort per report     1000      1 |        8.887          66140            10055
+V3 TreeMap only                1000      1 |        0.740            162            10055
+V2 redesign: cached index      1000      1 |        0.052            100                0
+V1 HashMap + sort per report     1000     10 |       57.380         661400           100550
+V3 TreeMap only                1000     10 |        4.471            162           100550
+V2 redesign: cached index      1000     10 |        0.054            100                0
+V1 HashMap + sort per report     1000    100 |      341.112        6614000          1005500
+V3 TreeMap only                1000    100 |        8.182            162          1005500
+V2 redesign: cached index      1000    100 |        0.059            100                0
+V1 HashMap + sort per report    10000      1 |       42.936         701892           100055
+V3 TreeMap only               10000      1 |        1.047            277           100055
+V2 redesign: cached index     10000      1 |        0.053            135                0
+V1 HashMap + sort per report    10000     10 |      199.650        7018920          1000550
+V3 TreeMap only               10000     10 |        8.672            277          1000550
+V2 redesign: cached index     10000     10 |        0.293            135                0
+V1 HashMap + sort per report    10000    100 |     1724.632       70189200         10005500
+V3 TreeMap only               10000    100 |       85.436            277         10005500
+V2 redesign: cached index     10000    100 |        0.056            135                0
+V1 HashMap + sort per report   100000      1 |      221.783        6394720          1000055
+V3 TreeMap only              100000      1 |       28.306            254          1000055
+V2 redesign: cached index    100000      1 |        0.610            169                0
+V1 HashMap + sort per report   100000     10 |     2194.786       63947200         10000550
+V3 TreeMap only              100000     10 |      133.918            254         10000550
+V2 redesign: cached index    100000     10 |        0.204            169                0
+(all three designs produced identical code-order reports in every run)
+
+100,000 lookups, n = 100,000 (ms, mean of 5):
+  V1 : 3.22 ms
+  V2 : 3.10 ms
+  V3 : 50.91 ms
+
+Retained heap for n = 100,000 medicines (approximate, after GC):
+  V1 : about 38 bytes per medicine (includes the shared Medicine objects)
+  V2 : about 54 bytes per medicine (includes the shared Medicine objects)
+  V3 : about 40 bytes per medicine (includes the shared Medicine objects)
+(checksum 89651185878)

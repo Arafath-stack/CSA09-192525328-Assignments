@@ -1,0 +1,66 @@
+design,n,rep,admit_ns_per_op,serve_ns_per_op
+PriorityQueue,1000,0,869.9,249.3
+PriorityQueue,1000,1,121.9,280.0
+PriorityQueue,1000,2,102.1,229.8
+PriorityQueue,1000,3,100.7,245.4
+PriorityQueue,1000,4,102.4,222.9
+Sorted LinkedList,1000,0,9325.2,67.9
+Sorted LinkedList,1000,1,17385.4,45.6
+Sorted LinkedList,1000,2,11506.2,13.1
+Sorted LinkedList,1000,3,9071.7,11.6
+Sorted LinkedList,1000,4,5758.3,13.6
+5 FIFO queues,1000,0,55.3,156.3
+5 FIFO queues,1000,1,51.6,188.8
+5 FIFO queues,1000,2,53.7,187.5
+5 FIFO queues,1000,3,58.2,162.5
+5 FIFO queues,1000,4,51.8,193.2
+PriorityQueue,10000,0,62.1,188.1
+PriorityQueue,10000,1,62.2,590.8
+PriorityQueue,10000,2,63.9,556.7
+PriorityQueue,10000,3,69.1,181.9
+PriorityQueue,10000,4,64.0,182.8
+Sorted LinkedList,10000,0,19654.2,6.9
+Sorted LinkedList,10000,1,18462.3,7.1
+Sorted LinkedList,10000,2,17834.1,5.6
+Sorted LinkedList,10000,3,18735.2,6.7
+Sorted LinkedList,10000,4,18150.9,6.3
+5 FIFO queues,10000,0,89.1,144.4
+5 FIFO queues,10000,1,86.5,143.4
+5 FIFO queues,10000,2,85.4,971.0
+5 FIFO queues,10000,3,53.2,18.3
+5 FIFO queues,10000,4,39.5,19.3
+PriorityQueue,40000,0,39.3,516.9
+PriorityQueue,40000,1,32.9,409.1
+PriorityQueue,40000,2,151.1,445.1
+PriorityQueue,40000,3,39.2,557.5
+PriorityQueue,40000,4,39.7,547.4
+Sorted LinkedList,40000,0,105350.1,22.0
+Sorted LinkedList,40000,1,163876.7,22.3
+Sorted LinkedList,40000,2,159171.5,24.0
+Sorted LinkedList,40000,3,168877.1,23.0
+Sorted LinkedList,40000,4,165358.2,23.1
+5 FIFO queues,40000,0,9.9,6.3
+5 FIFO queues,40000,1,11.1,10.2
+5 FIFO queues,40000,2,10.9,8.4
+5 FIFO queues,40000,3,13.8,6.6
+5 FIFO queues,40000,4,11.6,6.8
+PriorityQueue,100000,0,25.4,225.6
+PriorityQueue,100000,1,35.7,273.2
+PriorityQueue,100000,2,63.7,220.5
+PriorityQueue,100000,3,27.9,225.2
+PriorityQueue,100000,4,25.5,230.6
+5 FIFO queues,100000,0,11.4,10.1
+5 FIFO queues,100000,1,7.3,8.2
+5 FIFO queues,100000,2,6.7,7.8
+5 FIFO queues,100000,3,16.3,5.5
+5 FIFO queues,100000,4,6.1,6.9
+PriorityQueue,1000000,0,72.5,386.2
+PriorityQueue,1000000,1,63.8,336.6
+PriorityQueue,1000000,2,62.7,341.8
+PriorityQueue,1000000,3,64.4,395.3
+PriorityQueue,1000000,4,92.3,351.6
+5 FIFO queues,1000000,0,38.0,6.8
+5 FIFO queues,1000000,1,40.7,7.0
+5 FIFO queues,1000000,2,114.2,4.7
+5 FIFO queues,1000000,3,59.7,9.4
+5 FIFO queues,1000000,4,102.7,8.5

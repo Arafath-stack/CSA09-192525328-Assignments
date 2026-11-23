@@ -1,0 +1,28 @@
+All six approaches produce identical text (checked).
+Workload             Method            us/ticket      (sd) alloc B/ticket retained B/ticket   est. interm.
+W1 short ticket      String+               0.359     0.228            704              120              8
+W1 short ticket      StringBuilder         0.589     0.208            480              124              1
+W1 short ticket      StringBuffer          0.577     0.171            488              120              1
+W1 short ticket      String.join           0.302     0.142            288              120              1
+W1 short ticket      StringJoiner          0.193     0.115            168              120              1
+W1 short ticket      String.format         0.872     0.261           1278              124            >=8
+W2 bulk tickets      String+               1.942     0.943          16504              624             50
+W2 bulk tickets      StringBuilder         1.887     0.886           3048              628              1
+W2 bulk tickets      StringBuffer          1.681     0.642           3056              628              1
+W2 bulk tickets      String.join           0.539     0.115           1464              628              1
+W2 bulk tickets      StringJoiner          0.712     0.099           1208              628              1
+W2 bulk tickets      String.format         2.309     0.315           7464              628           >=50
+W3 one huge ticket   String+          193219.713  7156.864     2808605912           286888          20000
+W3 one huge ticket   StringBuilder       224.016    14.569         876936           286888              1
+W3 one huge ticket   StringBuffer        253.783    43.311         876944           286888              1
+W3 one huge ticket   String.join         202.098    14.519         653744           286888              1
+W3 one huge ticket   StringJoiner        383.282   217.490         549224           286888              1
+
+--- Thread-safety: 4 threads x 100,000 appends of "x" (expected length 400000), 10 trials
+StringBuilder  trials with wrong length: 1 / 10   threads that crashed: 3
+StringBuffer   trials with wrong length: 0 / 10   threads that crashed: 0
+
+--- Entry integrity in a shared log: 4 threads x 20,000 entries of the form [T<id>-<n>]
+StringBuffer, 3 appends per entry        well-formed entries: 79998 / 80000
+StringBuffer, 1 append per entry         well-formed entries: 80000 / 80000
+StringBuilder in synchronized block      well-formed entries: 80000 / 80000
