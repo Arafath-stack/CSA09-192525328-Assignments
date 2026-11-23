@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **Name** | `<YOUR NAME>` |
-| **Register number** | `<YOUR REGISTER NUMBER>` |
-| **Repository** | `CSA09-<RegisterNumber>-Assignment5` |
+| **Name** | Yassar Arafath A |
+| **Register number** | 192525328 |
+| **Repository** | `CSA09-192525328-Assignment5` |
 | **Java version** | OpenJDK 21 (`javac 21`) – works with Java 11+ |
 | **Database** | MySQL-compatible (tested on MariaDB 10.11 with MariaDB Connector/J 2.7.6; the same code uses the `jdbc:mysql://` URL, so MySQL 8 + Connector/J 8 works unchanged) |
 | **OS / hardware used for measurements** | Ubuntu 24.04, 1 vCPU Intel Xeon 2.1 GHz, 4 GB RAM |
