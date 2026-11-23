@@ -1,0 +1,16 @@
+size_MB,bytes,lines,method,read_calls,time_ms,memory_note
+1,1048582,36158,unbuffered FileInputStream.read(),1048583,769.2,~0
+1,1048582,36158,BufferedInputStream(8KB),130,101.4,8 KB
+1,1048582,36158,byte[64KB] buffer,18,13.4,64 KB
+1,1048582,36158,BufferedReader.readLine(),n/a,55.0,8K chars
+1,1048582,36158,Files.readAllLines(),n/a,26.1,~3 MB heap
+10,10485762,361578,unbuffered FileInputStream.read(),10485763,2811.8,~0
+10,10485762,361578,BufferedInputStream(8KB),1282,237.5,8 KB
+10,10485762,361578,byte[64KB] buffer,162,29.5,64 KB
+10,10485762,361578,BufferedReader.readLine(),n/a,106.8,8K chars
+10,10485762,361578,Files.readAllLines(),n/a,52.0,~29 MB heap
+50,52428810,1807890,unbuffered FileInputStream.read(),52428811,14281.0,~0
+50,52428810,1807890,BufferedInputStream(8KB),6402,1010.0,8 KB
+50,52428810,1807890,byte[64KB] buffer,802,23.0,64 KB
+50,52428810,1807890,BufferedReader.readLine(),n/a,196.9,8K chars
+50,52428810,1807890,Files.readAllLines(),n/a,375.2,~135 MB heap

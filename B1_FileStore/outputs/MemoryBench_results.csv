@@ -1,0 +1,4 @@
+n,file_MB,hashmap_heap_MB,scan_buffer_KB
+1000,0.0,0.3,8 (one BufferedReader buffer + one line)
+10000,0.4,3.2,8 (one BufferedReader buffer + one line)
+100000,3.9,30.2,8 (one BufferedReader buffer + one line)

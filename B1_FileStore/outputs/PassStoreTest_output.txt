@@ -1,0 +1,23 @@
+File content:
+P1001,192311001,Arun,12,4500.0
+P1002,192311002,Meena,7,3800.0
+P1003,192311003,Kumar%2C Ravi,12,4200.0
+P1004,192311004,Bad,12
+P1005,192311005,Lakshmi,7,abc
+
+P1008,192311008,Farah,7,3900.0
+P1006,19231
+ID   Test                               Result Details
+T1   find existing pass (normal)        PASS  [P1001, 192311001, Arun, 12, 4500.0]
+T2   find pass that does not exist      PASS  returned null
+T3   damaged line: 4 fields             PASS  skipped, null
+T4   damaged line: amount 'abc'         PASS  skipped, null (base PassStore.find would return it!)
+T5   half-written last line (power cut) PASS  skipped, null
+T6   damaged lines do not stop search   PASS  P1008 lies AFTER 3 damaged lines and is still found: [P1008, 192311008, Farah, 7, 3900.0]
+T7   list route 12                      PASS  2 passes: P1001, P1003
+T8   list route with no passes (99)     PASS  empty list
+T9   name with comma round-trips        PASS  stored as Kumar%2C Ravi -> decoded Kumar, Ravi
+T10  addSafe rejects invalid record     PASS  IllegalArgumentException
+T11  missing file handled               PASS  returned null, no crash
+
+Summary: 11 passed, 0 failed
