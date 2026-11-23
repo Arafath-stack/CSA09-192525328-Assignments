@@ -1,4 +1,4 @@
-# CSA09-192525328-Assignment2
+# CSA0914-192525328-Assignment2
 
 **Name:** A. Yassar Arafath  **Register number:** 192525328
 **Assignment:** CO2 - Assignment 2 (Strings, Collections Framework, hashCode/equals, Generics, Comparable/Comparator, PriorityQueue)
