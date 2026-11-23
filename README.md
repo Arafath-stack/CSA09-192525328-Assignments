@@ -66,3 +66,8 @@ For JDBC programs add the driver: `java -cp "out:$JDBC_JAR" LoginDemo` (use `;` 
 ## Commit history
 
 One commit per task (see `git log`).
+
+## Extra material
+
+- `report/` – the two PDFs submitted with the assignment (design + analysis report, and execution-evidence captures).
+- `evidence_captures/` – PNG captures of each program's console output (replace/add your own screenshots from your machine if your faculty requires them).
