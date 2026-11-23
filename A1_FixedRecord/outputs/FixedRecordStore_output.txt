@@ -1,0 +1,7 @@
+Records: 100000
+Fixed-length file : 9200000 bytes (92 bytes/record)
+Delimited text    : 5946390 bytes (59.5 bytes/record average)
+Padding overhead of fixed layout vs text: 54.7%
+Seek read of record 100000: [P100000, 192319999, Student 99999, 40, Stop49, 2027-06-30, 4499.0]
+Find last pass by ID  -> RandomAccessFile seek: 8.35 microseconds | text-file scan: 18.12 ms
+Speed-up: about 2170 times
