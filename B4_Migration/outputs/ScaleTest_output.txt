@@ -1,0 +1,6 @@
+(loaded 800004 rows into MySQL with LOAD DATA in 1877 ms)
+Total passes: 800004 in 12 campuses
+Design X (12 serialized files): total size 43.4 MB | find the last pass by loading files: 802 ms | heap in use afterwards ~41 MB
+Design Y (one MySQL table)    : table+index size 50.6 MB | find by pass_id (primary key): 152 microseconds
+                                 count of route-12 passes across all campuses (full scan, no index): 152 ms (20000 passes)
+Speed-up for single pass lookup: about 5277 times

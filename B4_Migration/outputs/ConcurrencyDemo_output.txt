@@ -1,0 +1,6 @@
+(1) Serialized file shared by 4 counters x 100 passes each:
+    passes issued = 400 | passes found in file afterwards = 19 | I/O errors = 58
+    -> 381 passes silently LOST (lost-update problem)
+(2) Database used by 4 counters x 100 passes each:
+    passes issued = 400 | rows in table afterwards = 400 | errors = 0  -> nothing lost
+(3) Two counters insert the same pass id simultaneously: accepted=1, rejected by PRIMARY KEY=1

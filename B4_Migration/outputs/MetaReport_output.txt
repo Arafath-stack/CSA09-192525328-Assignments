@@ -1,0 +1,19 @@
+Database product   : MariaDB 10.11.14-MariaDB-0ubuntu0.24.04.1
+Driver             : MariaDB Connector/J 2.7.6 (JDBC 4.2)
+URL / user         : jdbc:mysql://localhost:3306/buspass_test / bususer
+Supports transactions        : true
+Supports batch updates       : true
+Default isolation level      : REPEATABLE_READ
+Max connections (0=unknown)  : 0
+Tables in catalog 'buspass_test':
+  - bus_pass
+      pass_id VARCHAR(10)
+      reg_no VARCHAR(15)
+      name VARCHAR(60)
+      route_no INT(10)
+      amount DECIMAL(10)
+      PRIMARY KEY: pass_id
+  - users
+      id VARCHAR(30)
+      pwd VARCHAR(60)
+      PRIMARY KEY: id
