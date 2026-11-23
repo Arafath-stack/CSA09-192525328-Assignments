@@ -1,0 +1,4 @@
+Charging is billed separately at Rs 12.0/kWh
+valid units(-5)? false
+charging 10 kWh = Rs 120.0
+MonthlyPass valid on 14 Nov: true, payable for Rs 90 -> 0.0

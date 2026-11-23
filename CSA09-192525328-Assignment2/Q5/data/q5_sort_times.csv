@@ -1,0 +1,46 @@
+n,approach,rep,ms
+10000,comparator chain (1 sort),0,8.945
+10000,three stable sorts,0,28.782
+10000,Comparable natural order,0,10.249
+10000,comparator chain (1 sort),1,8.361
+10000,three stable sorts,1,17.878
+10000,Comparable natural order,1,7.048
+10000,comparator chain (1 sort),2,7.691
+10000,three stable sorts,2,14.332
+10000,Comparable natural order,2,2.966
+10000,comparator chain (1 sort),3,7.713
+10000,three stable sorts,3,14.596
+10000,Comparable natural order,3,8.159
+10000,comparator chain (1 sort),4,7.803
+10000,three stable sorts,4,16.184
+10000,Comparable natural order,4,7.376
+100000,comparator chain (1 sort),0,60.375
+100000,three stable sorts,0,83.241
+100000,Comparable natural order,0,59.629
+100000,comparator chain (1 sort),1,60.186
+100000,three stable sorts,1,80.403
+100000,Comparable natural order,1,35.130
+100000,comparator chain (1 sort),2,59.294
+100000,three stable sorts,2,74.423
+100000,Comparable natural order,2,36.099
+100000,comparator chain (1 sort),3,56.617
+100000,three stable sorts,3,79.920
+100000,Comparable natural order,3,39.422
+100000,comparator chain (1 sort),4,58.441
+100000,three stable sorts,4,85.366
+100000,Comparable natural order,4,36.610
+500000,comparator chain (1 sort),0,703.493
+500000,three stable sorts,0,633.500
+500000,Comparable natural order,0,375.491
+500000,comparator chain (1 sort),1,457.591
+500000,three stable sorts,1,631.426
+500000,Comparable natural order,1,344.364
+500000,comparator chain (1 sort),2,526.480
+500000,three stable sorts,2,621.407
+500000,Comparable natural order,2,318.754
+500000,comparator chain (1 sort),3,613.984
+500000,three stable sorts,3,689.708
+500000,Comparable natural order,3,338.497
+500000,comparator chain (1 sort),4,479.021
+500000,three stable sorts,4,633.452
+500000,Comparable natural order,4,313.503

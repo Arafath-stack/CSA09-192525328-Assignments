@@ -1,0 +1,120 @@
+workload,method,rep,total_ms,us_per_ticket,alloc_bytes_per_ticket
+W1 short ticket,String+,0,49.716,0.497,704
+W1 short ticket,String+,1,85.206,0.852,704
+W1 short ticket,String+,2,20.866,0.209,704
+W1 short ticket,String+,3,19.588,0.196,704
+W1 short ticket,String+,4,36.272,0.363,704
+W1 short ticket,String+,5,20.950,0.209,704
+W1 short ticket,String+,6,18.633,0.186,704
+W1 short ticket,StringBuilder,0,62.700,0.627,480
+W1 short ticket,StringBuilder,1,34.352,0.344,480
+W1 short ticket,StringBuilder,2,41.337,0.413,480
+W1 short ticket,StringBuilder,3,73.037,0.730,480
+W1 short ticket,StringBuilder,4,43.203,0.432,480
+W1 short ticket,StringBuilder,5,58.506,0.585,480
+W1 short ticket,StringBuilder,6,99.437,0.994,480
+W1 short ticket,StringBuffer,0,82.417,0.824,488
+W1 short ticket,StringBuffer,1,52.131,0.521,488
+W1 short ticket,StringBuffer,2,67.399,0.674,488
+W1 short ticket,StringBuffer,3,77.756,0.778,488
+W1 short ticket,StringBuffer,4,49.519,0.495,488
+W1 short ticket,StringBuffer,5,35.152,0.352,488
+W1 short ticket,StringBuffer,6,39.411,0.394,488
+W1 short ticket,String.join,0,22.788,0.228,288
+W1 short ticket,String.join,1,48.770,0.488,288
+W1 short ticket,String.join,2,37.432,0.374,288
+W1 short ticket,String.join,3,28.669,0.287,288
+W1 short ticket,String.join,4,48.234,0.482,288
+W1 short ticket,String.join,5,10.428,0.104,288
+W1 short ticket,String.join,6,14.955,0.150,288
+W1 short ticket,StringJoiner,0,9.770,0.098,168
+W1 short ticket,StringJoiner,1,13.012,0.130,168
+W1 short ticket,StringJoiner,2,35.707,0.357,168
+W1 short ticket,StringJoiner,3,10.590,0.106,168
+W1 short ticket,StringJoiner,4,15.060,0.151,168
+W1 short ticket,StringJoiner,5,12.088,0.121,168
+W1 short ticket,StringJoiner,6,38.907,0.389,168
+W1 short ticket,String.format,0,76.600,0.766,1256
+W1 short ticket,String.format,1,75.672,0.757,1287
+W1 short ticket,String.format,2,148.059,1.481,1280
+W1 short ticket,String.format,3,95.087,0.951,1280
+W1 short ticket,String.format,4,71.319,0.713,1280
+W1 short ticket,String.format,5,67.668,0.677,1280
+W1 short ticket,String.format,6,76.007,0.760,1280
+W2 bulk tickets,String+,0,12.428,1.243,16504
+W2 bulk tickets,String+,1,23.598,2.360,16504
+W2 bulk tickets,String+,2,22.805,2.281,16504
+W2 bulk tickets,String+,3,39.477,3.948,16504
+W2 bulk tickets,String+,4,13.001,1.300,16504
+W2 bulk tickets,String+,5,12.357,1.236,16504
+W2 bulk tickets,String+,6,12.261,1.226,16504
+W2 bulk tickets,StringBuilder,0,10.282,1.028,3048
+W2 bulk tickets,StringBuilder,1,19.747,1.975,3048
+W2 bulk tickets,StringBuilder,2,21.978,2.198,3048
+W2 bulk tickets,StringBuilder,3,14.130,1.413,3048
+W2 bulk tickets,StringBuilder,4,14.767,1.477,3048
+W2 bulk tickets,StringBuilder,5,12.669,1.267,3048
+W2 bulk tickets,StringBuilder,6,38.550,3.855,3048
+W2 bulk tickets,StringBuffer,0,17.524,1.752,3056
+W2 bulk tickets,StringBuffer,1,15.049,1.505,3056
+W2 bulk tickets,StringBuffer,2,14.256,1.426,3056
+W2 bulk tickets,StringBuffer,3,14.604,1.460,3056
+W2 bulk tickets,StringBuffer,4,10.261,1.026,3056
+W2 bulk tickets,StringBuffer,5,14.237,1.424,3056
+W2 bulk tickets,StringBuffer,6,31.773,3.177,3056
+W2 bulk tickets,String.join,0,5.238,0.524,1464
+W2 bulk tickets,String.join,1,5.223,0.522,1464
+W2 bulk tickets,String.join,2,5.749,0.575,1464
+W2 bulk tickets,String.join,3,3.018,0.302,1464
+W2 bulk tickets,String.join,4,5.171,0.517,1464
+W2 bulk tickets,String.join,5,6.417,0.642,1464
+W2 bulk tickets,String.join,6,6.934,0.693,1464
+W2 bulk tickets,StringJoiner,0,7.631,0.763,1208
+W2 bulk tickets,StringJoiner,1,5.672,0.567,1208
+W2 bulk tickets,StringJoiner,2,7.626,0.763,1208
+W2 bulk tickets,StringJoiner,3,7.518,0.752,1208
+W2 bulk tickets,StringJoiner,4,5.467,0.547,1208
+W2 bulk tickets,StringJoiner,5,7.920,0.792,1208
+W2 bulk tickets,StringJoiner,6,7.980,0.798,1208
+W2 bulk tickets,String.format,0,21.928,2.193,7464
+W2 bulk tickets,String.format,1,23.786,2.379,7464
+W2 bulk tickets,String.format,2,21.403,2.140,7464
+W2 bulk tickets,String.format,3,22.184,2.218,7464
+W2 bulk tickets,String.format,4,30.464,3.046,7464
+W2 bulk tickets,String.format,5,20.644,2.064,7464
+W2 bulk tickets,String.format,6,21.234,2.123,7464
+W3 one huge ticket,String+,0,197.185,197185.072,2808605912
+W3 one huge ticket,String+,1,206.059,206059.230,2808605912
+W3 one huge ticket,String+,2,198.431,198431.018,2808605912
+W3 one huge ticket,String+,3,192.384,192384.293,2808605912
+W3 one huge ticket,String+,4,185.582,185582.382,2808605912
+W3 one huge ticket,String+,5,186.260,186259.570,2808605912
+W3 one huge ticket,String+,6,186.636,186636.427,2808605912
+W3 one huge ticket,StringBuilder,0,0.217,217.441,876936
+W3 one huge ticket,StringBuilder,1,0.225,225.407,876936
+W3 one huge ticket,StringBuilder,2,0.213,213.055,876936
+W3 one huge ticket,StringBuilder,3,0.257,257.225,876936
+W3 one huge ticket,StringBuilder,4,0.210,209.900,876936
+W3 one huge ticket,StringBuilder,5,0.225,225.185,876936
+W3 one huge ticket,StringBuilder,6,0.220,219.902,876936
+W3 one huge ticket,StringBuffer,0,0.221,220.613,876944
+W3 one huge ticket,StringBuffer,1,0.228,228.423,876944
+W3 one huge ticket,StringBuffer,2,0.264,264.140,876944
+W3 one huge ticket,StringBuffer,3,0.223,222.939,876944
+W3 one huge ticket,StringBuffer,4,0.227,226.639,876944
+W3 one huge ticket,StringBuffer,5,0.262,262.379,876944
+W3 one huge ticket,StringBuffer,6,0.351,351.345,876944
+W3 one huge ticket,String.join,0,0.229,229.446,653744
+W3 one huge ticket,String.join,1,0.199,198.906,653744
+W3 one huge ticket,String.join,2,0.191,191.138,653744
+W3 one huge ticket,String.join,3,0.191,191.305,653744
+W3 one huge ticket,String.join,4,0.219,218.670,653744
+W3 one huge ticket,String.join,5,0.196,196.234,653744
+W3 one huge ticket,String.join,6,0.189,188.990,653744
+W3 one huge ticket,StringJoiner,0,0.270,270.269,549224
+W3 one huge ticket,StringJoiner,1,0.380,379.825,549224
+W3 one huge ticket,StringJoiner,2,0.300,300.295,549224
+W3 one huge ticket,StringJoiner,3,0.269,268.920,549224
+W3 one huge ticket,StringJoiner,4,0.290,289.577,549224
+W3 one huge ticket,StringJoiner,5,0.266,265.683,549224
+W3 one huge ticket,StringJoiner,6,0.908,908.406,549224

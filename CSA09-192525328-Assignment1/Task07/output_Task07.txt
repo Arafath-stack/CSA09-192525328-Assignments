@@ -1,0 +1,6 @@
+toString : Car[TN02B2222] | ElectricCar[TN02B2222]
+a.equals(b) : true   (same registration number)
+a.equals(c) : false
+hashCodes equal : true
+HashSet contains b : true
+fee(a, 130 min) = 90.0   fee(b, 130 min) = 90.0

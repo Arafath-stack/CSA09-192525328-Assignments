@@ -1,0 +1,4 @@
+new ElectricCar("TN09EV0001")
+1. Vehicle(TN09EV0001) constructor runs
+2. Car(TN09EV0001) constructor runs
+3. ElectricCar(TN09EV0001) constructor runs

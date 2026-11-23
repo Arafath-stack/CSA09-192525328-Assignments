@@ -1,0 +1,11 @@
+Task1  n=1000    parallel arrays    0.003 ms/search | object array    0.002 ms/search
+Task1  n=10000   parallel arrays    0.621 ms/search | object array    0.042 ms/search
+Task1  n=100000  parallel arrays    0.511 ms/search | object array    0.487 ms/search
+Task3  F=5   S=100   scan allocate+release    0.0072 ms | stack allocate+release    0.0004 ms
+Task3  F=50  S=1000  scan allocate+release    0.0989 ms | stack allocate+release    0.0000 ms
+Task4  n=1000000 (best of 7)  constructor 35.0 ms | default+setters 22.7 ms | static factory 22.6 ms
+Task7  30000000 fee calls  dynamic dispatch 133.9 ms | switch on type 26.3 ms
+Task11 n=1000    array    0.0177 ms | ArrayList    0.0031 ms | HashMap  0.000031 ms (per lookup)
+Task11 n=10000   array    0.0622 ms | ArrayList    0.0587 ms | HashMap  0.000032 ms (per lookup)
+Task11 n=100000  array    0.5288 ms | ArrayList    0.4203 ms | HashMap  0.000023 ms (per lookup)
+(checksum 8623216800)

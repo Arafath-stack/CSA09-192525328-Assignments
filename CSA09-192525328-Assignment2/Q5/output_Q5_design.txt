@@ -1,0 +1,25 @@
+Data set 1 (ties at every level), correct comparator:
+  [Team[name=Lions, points=12, goalDiff=5], Team[name=Tigers, points=12, goalDiff=5], Team[name=Wolves, points=12, goalDiff=5], Team[name=Hawks, points=12, goalDiff=2], Team[name=Owls, points=12, goalDiff=2], Team[name=Rams, points=9, goalDiff=7], Team[name=Sharks, points=9, goalDiff=7], Team[name=Bulls, points=9, goalDiff=0], Team[name=Bears, points=6, goalDiff=3], Team[name=Foxes, points=6, goalDiff=3], Team[name=Yaks, points=3, goalDiff=-2]]
+  same ranking regardless of input order: true
+
+Faulty comparator 1: points compared by SUBTRACTION, data set 2 with extreme points
+  cmp(A,B)=-2000000000 (A first)  cmp(B,C)=-2000000000 (B first)  cmp(A,C)=294967296 (positive: C first!)
+  => A<B, B<C and C<A: a cycle, so no consistent ranking exists
+  sort finished without exception, but transitivity violations among the 61 teams: 2688
+  transitivity violations, correct comparator on the same data: 0
+
+Faulty comparator 2: tie-breaker (name) ignored; two input orders of the SAME teams
+  input (Panthers, Bisons) -> [Team[name=Panthers, points=9, goalDiff=4], Team[name=Bisons, points=9, goalDiff=4]]    input (Bisons, Panthers) -> [Team[name=Bisons, points=9, goalDiff=4], Team[name=Panthers, points=9, goalDiff=4]]   (result depends on input order: not a ranking)
+  correct comparator -> [Team[name=Bisons, points=9, goalDiff=4], Team[name=Panthers, points=9, goalDiff=4]] and [Team[name=Bisons, points=9, goalDiff=4], Team[name=Panthers, points=9, goalDiff=4]]
+Faulty comparator 3: goal difference in the wrong direction -> [Team[name=X, points=9, goalDiff=1], Team[name=Y, points=9, goalDiff=8]] (Y with goalDiff 8 should be first)
+
+Same generic Board reused for players: [Player[name=Asha, goals=9], Player[name=Kiran, goals=9], Player[name=Ravi, goals=7]]
+Bounded type best(): TeamC[name=Eagles, points=9, goalDiff=6]
+
+=== Alternatives: one sort with Comparator chain vs three stable sorts vs Comparable (ms, mean of 5 runs)
+  n=10000: three stable sorts give the same order as the chain: true; Comparable gives the same order: true
+  n=10000   comparator chain     8.10 ms | three stable sorts    18.35 ms | Comparable     7.16 ms
+  n=100000: three stable sorts give the same order as the chain: true; Comparable gives the same order: true
+  n=100000  comparator chain    58.98 ms | three stable sorts    80.67 ms | Comparable    41.38 ms
+  n=500000: three stable sorts give the same order as the chain: true; Comparable gives the same order: true
+  n=500000  comparator chain   556.11 ms | three stable sorts   641.90 ms | Comparable   338.12 ms

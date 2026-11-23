@@ -1,0 +1,10 @@
+test,description,predicted,observed
+T1,"broken class, SAME object scanned twice (reference reused)",2,2
+T2,"broken class, two DIFFERENT objects with the same regNo",3,3
+T3,"corrected class (hashCode from regNo), same scans as T2",2,2
+T4,"broken class, 10,000 fresh-object scans of 1,000 students",10000,10000
+T5,"corrected class, same 10,000 scans",1000,1000
+T6,"regNo changed after insertion: size of set",1,1
+T6b,"contains(m),contains(newRegNo),contains(oldRegNo),remove(m)","false,false,false,false","false,false,false,false"
+T7a,"HashSet of two different students with the same name",2,2
+T7b,"TreeSet with comparator on name only (inconsistent with equals)",1,1

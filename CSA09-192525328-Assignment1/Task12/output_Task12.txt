@@ -1,0 +1,30 @@
+ID    Test case                                            Expected                 Actual                   Result
+--- Regression: original tests still pass on the extended code
+R1    TwoWheeler, 90 min                                   20.0                     20.0                     PASS
+R2    Car, 180 min                                         90.0                     90.0                     PASS
+R3    EV 61 min + 10 kWh                                   180.0                    180.0                    PASS
+R4    Car, 600 min daily cap                               240.0                    240.0                    PASS
+R5    Car, 0 min                                           0.0                      0.0                      PASS
+R6    Unknown vehicle type BUS                             IllegalArgumentException IllegalArgumentException PASS
+--- New: e-bike (flat fee)
+E1    E-bike 10 minutes                                    20.0                     20.0                     PASS
+E2    E-bike 10 hours                                      20.0                     20.0                     PASS
+--- New: delivery van (2x car rate 09:00-17:00)
+V1    Van 08:30-10:30 (30 + 60)                            90.0                     90.0                     PASS
+V2    Van 09:00-11:00 fully peak (60 + 60)                 120.0                    120.0                    PASS
+V3    Van 18:00-20:00 fully off-peak (30 + 30)             60.0                     60.0                     PASS
+V4    Van 17:00-18:00 starts at 17:00 = off-peak           30.0                     30.0                     PASS
+V5    Van 16:30-17:30 starts in peak                       60.0                     60.0                     PASS
+V6    Van zero minutes                                     0.0                      0.0                      PASS
+--- New: one-day pass
+P1    Visitor car, one-day pass, 11 h on pass day          0.0                      0.0                      PASS
+P2    One-day pass for another day is ignored (60 min)     30.0                     30.0                     PASS
+P3    OneDayPass.isValidOn(other day)                      false                    false                    PASS
+--- New: extended facility (5 floors, different slots per floor)
+F1    Capacity of {10,20,15,30,25}                         100                      100                      PASS
+F2    100 vehicles fit, 101st rejected                     Facility full            Facility full            PASS
+--- Hand-calculated scenario (expected total Rs 450)
+Fees: [20.0, 90.0, 180.0, 0.0, 20.0, 90.0, 0.0] + one-day pass sale 50.0
+S1    Total collection for the day                         450.0                    450.0                    PASS
+
+Total: 20   Passed: 20   Failed: 0

@@ -1,0 +1,4 @@
+variant,well_formed,expected
+"StringBuffer, 3 appends per entry",79998,80000
+"StringBuffer, 1 append per entry",80000,80000
+"StringBuilder in synchronized block",80000,80000

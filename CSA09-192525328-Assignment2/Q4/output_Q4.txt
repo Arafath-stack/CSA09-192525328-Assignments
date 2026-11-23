@@ -1,0 +1,26 @@
+structure             n |     build ms 100k lookups ms code-order rpt ms insert-order rpt ms | order correct?
+HashMap            1000 |         1.57           2.57             0.68                - | code-order true, insertion-order n/a (no order kept)
+TreeMap            1000 |         0.70          14.28             0.89                - | code-order true, insertion-order n/a (no order kept)
+LinkedHashMap      1000 |         0.39           3.48             1.30             0.02 | code-order true, insertion-order true
+Hashtable          1000 |         0.34           3.47             1.05                - | code-order true, insertion-order n/a (no order kept)
+SortedArray        1000 |         1.45          18.17             0.04                - | sorted by construction; 1000 insertions: 6.03 ms
+   comparisons to sort 1000 keys: 8684  (n*log2 n = 9966)
+HashMap           10000 |         3.67           5.09             5.50                - | code-order true, insertion-order n/a (no order kept)
+TreeMap           10000 |         6.64          34.09             0.88                - | code-order true, insertion-order n/a (no order kept)
+LinkedHashMap     10000 |         0.59           2.01            11.12             0.05 | code-order true, insertion-order true
+Hashtable         10000 |         2.54           4.81             2.15                - | code-order true, insertion-order n/a (no order kept)
+SortedArray       10000 |         7.74          31.09             0.40                - | sorted by construction; 1000 insertions: 4.89 ms
+   comparisons to sort 10000 keys: 120335  (n*log2 n = 132877)
+HashMap          100000 |        11.89           5.09            65.84                - | code-order true, insertion-order n/a (no order kept)
+TreeMap          100000 |       133.05          63.42            26.05                - | code-order true, insertion-order n/a (no order kept)
+LinkedHashMap    100000 |        13.39           3.60            71.62             0.45 | code-order true, insertion-order true
+Hashtable        100000 |         5.37           4.18            16.13                - | code-order true, insertion-order n/a (no order kept)
+SortedArray      100000 |       147.97          66.69             0.12                - | sorted by construction; 1000 insertions: 11.88 ms
+   comparisons to sort 100000 keys: 1534823  (n*log2 n = 1660964)
+HashMap          500000 |        63.10           4.63           214.67                - | code-order true, insertion-order n/a (no order kept)
+TreeMap          500000 |       685.20         134.03            48.50                - | code-order true, insertion-order n/a (no order kept)
+LinkedHashMap    500000 |        99.01           5.11           389.79            63.02 | code-order true, insertion-order true
+Hashtable        500000 |        92.13           8.28           195.62                - | code-order true, insertion-order n/a (no order kept)
+SortedArray      500000 |       499.10         150.58             1.23                - | sorted by construction; 1000 insertions: 43.13 ms
+   comparisons to sort 500000 keys: 8820420  (n*log2 n = 9465784)
+(checksum 3925114260)

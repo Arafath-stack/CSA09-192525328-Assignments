@@ -1,0 +1,73 @@
+design,n,reports_per_write,writes,rep,total_ms,comparisons,elements_copied
+V1 HashMap + sort per report,1000,1,10,0,7.960,66140,10055
+V1 HashMap + sort per report,1000,1,10,1,11.547,66140,10055
+V1 HashMap + sort per report,1000,1,10,2,7.154,66140,10055
+V3 TreeMap only,1000,1,10,0,0.804,162,10055
+V3 TreeMap only,1000,1,10,1,0.705,162,10055
+V3 TreeMap only,1000,1,10,2,0.709,162,10055
+V2 redesign: cached index,1000,1,10,0,0.093,100,0
+V2 redesign: cached index,1000,1,10,1,0.030,100,0
+V2 redesign: cached index,1000,1,10,2,0.033,100,0
+V1 HashMap + sort per report,1000,10,10,0,59.856,661400,100550
+V1 HashMap + sort per report,1000,10,10,1,51.340,661400,100550
+V1 HashMap + sort per report,1000,10,10,2,60.946,661400,100550
+V3 TreeMap only,1000,10,10,0,3.322,162,100550
+V3 TreeMap only,1000,10,10,1,5.311,162,100550
+V3 TreeMap only,1000,10,10,2,4.779,162,100550
+V2 redesign: cached index,1000,10,10,0,0.051,100,0
+V2 redesign: cached index,1000,10,10,1,0.049,100,0
+V2 redesign: cached index,1000,10,10,2,0.061,100,0
+V1 HashMap + sort per report,1000,100,10,0,488.105,6614000,1005500
+V1 HashMap + sort per report,1000,100,10,1,375.881,6614000,1005500
+V1 HashMap + sort per report,1000,100,10,2,159.349,6614000,1005500
+V3 TreeMap only,1000,100,10,0,9.086,162,1005500
+V3 TreeMap only,1000,100,10,1,6.595,162,1005500
+V3 TreeMap only,1000,100,10,2,8.865,162,1005500
+V2 redesign: cached index,1000,100,10,0,0.055,100,0
+V2 redesign: cached index,1000,100,10,1,0.069,100,0
+V2 redesign: cached index,1000,100,10,2,0.053,100,0
+V1 HashMap + sort per report,10000,1,10,0,47.416,701892,100055
+V1 HashMap + sort per report,10000,1,10,1,40.923,701892,100055
+V1 HashMap + sort per report,10000,1,10,2,40.470,701892,100055
+V3 TreeMap only,10000,1,10,0,1.049,277,100055
+V3 TreeMap only,10000,1,10,1,1.027,277,100055
+V3 TreeMap only,10000,1,10,2,1.064,277,100055
+V2 redesign: cached index,10000,1,10,0,0.049,135,0
+V2 redesign: cached index,10000,1,10,1,0.057,135,0
+V2 redesign: cached index,10000,1,10,2,0.052,135,0
+V1 HashMap + sort per report,10000,10,10,0,296.169,7018920,1000550
+V1 HashMap + sort per report,10000,10,10,1,151.956,7018920,1000550
+V1 HashMap + sort per report,10000,10,10,2,150.826,7018920,1000550
+V3 TreeMap only,10000,10,10,0,8.347,277,1000550
+V3 TreeMap only,10000,10,10,1,8.711,277,1000550
+V3 TreeMap only,10000,10,10,2,8.958,277,1000550
+V2 redesign: cached index,10000,10,10,0,0.052,135,0
+V2 redesign: cached index,10000,10,10,1,0.793,135,0
+V2 redesign: cached index,10000,10,10,2,0.034,135,0
+V1 HashMap + sort per report,10000,100,10,0,1634.935,70189200,10005500
+V1 HashMap + sort per report,10000,100,10,1,1727.100,70189200,10005500
+V1 HashMap + sort per report,10000,100,10,2,1811.860,70189200,10005500
+V3 TreeMap only,10000,100,10,0,79.309,277,10005500
+V3 TreeMap only,10000,100,10,1,99.320,277,10005500
+V3 TreeMap only,10000,100,10,2,77.678,277,10005500
+V2 redesign: cached index,10000,100,10,0,0.060,135,0
+V2 redesign: cached index,10000,100,10,1,0.059,135,0
+V2 redesign: cached index,10000,100,10,2,0.049,135,0
+V1 HashMap + sort per report,100000,1,10,0,230.269,6394720,1000055
+V1 HashMap + sort per report,100000,1,10,1,215.203,6394720,1000055
+V1 HashMap + sort per report,100000,1,10,2,219.878,6394720,1000055
+V3 TreeMap only,100000,1,10,0,37.725,254,1000055
+V3 TreeMap only,100000,1,10,1,34.296,254,1000055
+V3 TreeMap only,100000,1,10,2,12.896,254,1000055
+V2 redesign: cached index,100000,1,10,0,1.400,169,0
+V2 redesign: cached index,100000,1,10,1,0.218,169,0
+V2 redesign: cached index,100000,1,10,2,0.212,169,0
+V1 HashMap + sort per report,100000,10,10,0,2250.103,63947200,10000550
+V1 HashMap + sort per report,100000,10,10,1,2196.724,63947200,10000550
+V1 HashMap + sort per report,100000,10,10,2,2137.529,63947200,10000550
+V3 TreeMap only,100000,10,10,0,108.970,254,10000550
+V3 TreeMap only,100000,10,10,1,119.577,254,10000550
+V3 TreeMap only,100000,10,10,2,173.208,254,10000550
+V2 redesign: cached index,100000,10,10,0,0.196,169,0
+V2 redesign: cached index,100000,10,10,1,0.190,169,0
+V2 redesign: cached index,100000,10,10,2,0.225,169,0

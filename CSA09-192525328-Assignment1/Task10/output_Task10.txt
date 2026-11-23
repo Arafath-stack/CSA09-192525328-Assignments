@@ -1,0 +1,6 @@
+127 == 127 : true   (cached Integer objects)
+128 == 128 : false  (different objects!)
+128 equals : true   (always use equals for wrappers)
+valid setter   : 90
+invalid setter : duration cannot be negative: -5
+auto-unboxing null -> NullPointerException

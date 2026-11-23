@@ -1,0 +1,28 @@
+ID    Test case                                            Expected                 Actual                   Result
+--- Normal operation
+N1    TwoWheeler, 90 min (2 started hours x 10)            20.0                     20.0                     PASS
+N2    Car, 180 min (3 x 30)                                90.0                     90.0                     PASS
+N3    EV 61 min + 10 kWh (2x30 + 10x12)                    180.0                    180.0                    PASS
+N4    Student with monthly pass, car 8 h                   0.0                      0.0                      PASS
+--- Boundary cases
+B1    Zero-minute parking (car)                            0.0                      0.0                      PASS
+B2    Exactly 60 min = 1 hour (car)                        30.0                     30.0                     PASS
+B3    61 min = 2 hours (car)                               60.0                     60.0                     PASS
+B4    480 min = 8 h = daily cap (car)                      240.0                    240.0                    PASS
+B5    600 min, daily cap still 240 (car)                   240.0                    240.0                    PASS
+B6    1500 min = 1 day + 1 h (car)                         270.0                    270.0                    PASS
+B7    Last free slot used, next vehicle rejected           Facility full            Facility full            PASS
+B8    Slot reusable after exit                             accepted                 accepted                 PASS
+--- Invalid cases
+I1    Unknown vehicle type BUS                             IllegalArgumentException IllegalArgumentException PASS
+I2    Duplicate registration number                        IllegalStateException    IllegalStateException    PASS
+I3    release(9,9) on invalid slot                         false                    false                    PASS
+I4    Exit for a vehicle that never entered                IllegalStateException    IllegalStateException    PASS
+I5    Negative duration                                    IllegalArgumentException IllegalArgumentException PASS
+I6    Visitor holding a monthly pass                       IllegalArgumentException IllegalArgumentException PASS
+I7    Invalid registration number 'x!'                     IllegalArgumentException IllegalArgumentException PASS
+--- Hand-calculated scenario (expected total Rs 290)
+TwoWheeler 90 min = 20.0 | Car 180 min = 90.0 | EV 61 min+10kWh = 180.0 | Student pass = 0.0
+S1    Total collection for the day                         290.0                    290.0                    PASS
+
+Total: 20   Passed: 20   Failed: 0

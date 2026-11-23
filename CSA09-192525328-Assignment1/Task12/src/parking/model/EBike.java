@@ -1,0 +1,12 @@
+package parking.model;
+
+/** NEW (Task 12): e-bikes pay a flat fee regardless of duration. */
+public class EBike extends Vehicle {
+    public static final double FLAT_FEE = 20;
+    public EBike(String regNo) { super(regNo); }
+    @Override protected double ratePerHour() { return 0; }
+    @Override public double calculateFee(int minutes) {
+        if (minutes < 0) throw new IllegalArgumentException("Duration cannot be negative: " + minutes);
+        return FLAT_FEE;
+    }
+}

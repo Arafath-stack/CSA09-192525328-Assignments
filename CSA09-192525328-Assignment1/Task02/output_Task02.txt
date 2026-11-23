@@ -1,0 +1,6 @@
+Wrong  (minutes/60)           hours=2 fee=Rs 60
+Wrong  Math.ceil(minutes/60)  hours=2.0 fee=Rs 60.0
+Right  (minutes+59)/60        hours=3 fee=Rs 90
+Right  Math.ceil(minutes/60.0) hours=3.0 fee=Rs 90.0
+Unsafe (int) cast of long     : -1294967296
+Math.toIntExact detects it   : integer overflow
