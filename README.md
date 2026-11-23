@@ -3,7 +3,7 @@
 **Name:** Yassar Arafath A  
 **Register Number:** 192525328  
 **Course Code:** CSA0914  
-**Course Name:** Java
+**Course Name:** Programming in Java
 
 ## Assignments
 
