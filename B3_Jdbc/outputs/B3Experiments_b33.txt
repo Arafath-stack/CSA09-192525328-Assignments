@@ -1,0 +1,19 @@
+Database: MariaDB 10.11.14-MariaDB-0ubuntu0.24.04.1 | Driver: MariaDB Connector/J 2.7.6
+
+=== B3.3 Batch insert: auto-commit ON vs ONE transaction (times in ms) ===
+rows,batch_autocommit_ON_ms,batch_single_transaction_ms
+1000,362,79
+10000,1670,260
+100000,13547,2153
+
+--- Forced failure half-way (10,000 rows; row 5,001 has amount 'ABC') ---
+  [auto-commit ON ] failed with: java.lang.NumberFormatException: For input string: "ABC"
+  [auto-commit ON ] rows in table after failure = 5000   (partial data stays: table is inconsistent)
+  [transaction    ] failed with: java.lang.NumberFormatException: For input string: "ABC"
+  [transaction    ] rows in table after failure = 0   (rollback: all or nothing)
+--- Failure caused by the DATABASE (duplicate primary key at row 7,001) ---
+  [auto-commit ON ] failed with: BatchUpdateException: (conn=10) Duplicate entry 'P000001' for key 'PRIMARY'
+  [auto-commit ON ] rows in table after failure = 7999
+  [transaction    ] failed with: BatchUpdateException: (conn=10) Duplicate entry 'P000001' for key 'PRIMARY'
+  [transaction    ] rows in table after failure = 0
+

@@ -1,0 +1,4 @@
+rows,PassLoader_batch_txn_ms,multirow_insert_b1000_txn_ms,multirow_max_sql_chars,LOAD_DATA_ms,load_data_rows
+1000,164,26,46736,10,1000
+10000,586,93,47844,29,10000
+100000,2078,451,48844,254,100000

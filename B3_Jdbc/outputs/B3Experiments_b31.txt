@@ -1,0 +1,15 @@
+Database: MariaDB 10.11.14-MariaDB-0ubuntu0.24.04.1 | Driver: MariaDB Connector/J 2.7.6
+
+=== B3.1 Correctness on small data (10 records, each approach) ===
+  Statement                          -> 10 rows  first=[P000001,192310001,Student1,2,3501.00]  last=[P000010,192310010,Student10,11,3510.00]
+  ResultSetMetaData of SELECT * FROM bus_pass:
+     col 1: pass_id   type=VARCHAR  (java.sql.Types=12) java=java.lang.String size=10 nullable=NO
+     col 2: reg_no    type=VARCHAR  (java.sql.Types=12) java=java.lang.String size=15 nullable=NO
+     col 3: name      type=VARCHAR  (java.sql.Types=12) java=java.lang.String size=60 nullable=NO
+     col 4: route_no  type=INTEGER  (java.sql.Types=4) java=java.lang.Integer size=11 nullable=NO
+     col 5: amount    type=DECIMAL  (java.sql.Types=3) java=java.math.BigDecimal size=10 nullable=NO
+  PreparedStatement                  -> 10 rows  first=[P000001,192310001,Student1,2,3501.00]  last=[P000010,192310010,Student10,11,3510.00]
+  PreparedStatement + batch          -> 10 rows  first=[P000001,192310001,Student1,2,3501.00]  last=[P000010,192310010,Student10,11,3510.00]
+  PassLoader.loadAll returned 10
+  PassLoader.loadAll (transaction)   -> 10 rows  first=[P000001,192310001,Student1,2,3501.00]  last=[P000010,192310010,Student10,11,3510.00]
+

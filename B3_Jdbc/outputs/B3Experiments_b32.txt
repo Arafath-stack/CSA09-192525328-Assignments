@@ -1,0 +1,8 @@
+Database: MariaDB 10.11.14-MariaDB-0ubuntu0.24.04.1 | Driver: MariaDB Connector/J 2.7.6
+
+=== B3.2 Increase the data size (auto-commit ON for all three; times in ms) ===
+rows,Statement_ms,PreparedStatement_ms,PreparedStatement_batch_ms
+1000,934,435,434
+10000,2160,1882,1745
+100000,15066,14398,14814
+
