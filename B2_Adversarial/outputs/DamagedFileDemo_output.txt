@@ -1,0 +1,25 @@
+File content:
+P2001,192312001,Arun,12,4500.0
+P2002,192312002,Meena,7
+P2003,192312003,Karthik,12,FIVE-HUNDRED
+<EMPTY LINE>
+P2004,192312004,Divya,abc,3800.0
+P2005,192312005,Ravi,5,-100.0
+P2006,192312006,Lakshmi,9,3900.0
+
+Pass ID  | Base find() (TODO 1: only counts fields)      | Strict findStrict() (parses values)
+P2001    | [P2001, 192312001, Arun, 12, 4500.0]          | [P2001, 192312001, Arun, 12, 4500.0]
+P2002    | null                                          | null
+P2003    | [P2003, 192312003, Karthik, 12, FIVE-HUNDRED] | null
+P2004    | [P2004, 192312004, Divya, abc, 3800.0]        | null
+P2005    | [P2005, 192312005, Ravi, 5, -100.0]           | null
+P2006    | [P2006, 192312006, Lakshmi, 9, 3900.0]        | [P2006, 192312006, Lakshmi, 9, 3900.0]
+
+Reasons the strict reader rejects each line:
+  line 1: OK
+  line 2: REJECTED - expected 5 fields but found 4   [P2002,192312002,Meena,7]
+  line 3: REJECTED - amount not numeric   [P2003,192312003,Karthik,12,FIVE-HUNDRED]
+  line 4: REJECTED - empty line   []
+  line 5: REJECTED - route not an integer   [P2004,192312004,Divya,abc,3800.0]
+  line 6: REJECTED - amount invalid   [P2005,192312005,Ravi,5,-100.0]
+  line 7: OK

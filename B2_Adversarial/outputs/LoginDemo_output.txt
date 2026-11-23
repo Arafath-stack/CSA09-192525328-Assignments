@@ -1,0 +1,41 @@
+Users table holds: arun/Pass@123 and admin/Str0ng#Secret
+
+1. Valid login (arun, correct password)   id=[arun]  pwd=[Pass@123]
+    SQL sent : SELECT * FROM users WHERE id='arun' AND pwd='Pass@123'
+  RESULT  unsafe=ACCEPTED safe(PreparedStatement)=ACCEPTED 
+
+2. Wrong password   id=[arun]  pwd=[wrong]
+    SQL sent : SELECT * FROM users WHERE id='arun' AND pwd='wrong'
+  RESULT  unsafe=rejected safe(PreparedStatement)=rejected 
+
+3. Attack: comment out the password check   id=[admin' -- ]  pwd=[anything]
+    SQL sent : SELECT * FROM users WHERE id='admin' -- ' AND pwd='anything'
+  RESULT  unsafe=ACCEPTED safe(PreparedStatement)=rejected 
+
+4. Attack: always-true condition (OR '1'='1')   id=[x' OR '1'='1]  pwd=[x' OR '1'='1]
+    SQL sent : SELECT * FROM users WHERE id='x' OR '1'='1' AND pwd='x' OR '1'='1'
+  RESULT  unsafe=ACCEPTED safe(PreparedStatement)=rejected 
+
+=== Alternative defences (B2 Alternative Concept) ===
+
+5. Quote-doubling on the plain attack  id=[admin' -- ]
+    SQL sent : SELECT * FROM users WHERE id='admin'' -- ' AND pwd='x'
+  RESULT  escaped version = rejected (this attack is blocked)
+
+6. Quote-doubling BYPASSED using a backslash  id=[\]  pwd=[' OR 1=1 -- ]
+    SQL sent : SELECT * FROM users WHERE id='\' AND pwd=''' OR 1=1 -- '
+  RESULT  escaped version = ACCEPTED (bypassed!) | PreparedStatement = rejected
+
+7. Regex validation blocks the attack  id=[admin' -- ]
+    rejected by regex validation
+  RESULT  validated version = rejected
+
+8. Regex validation rejects a LEGITIMATE password containing a quote/space: pwd=[It's my pass]
+    rejected by regex validation
+  RESULT  validated version = REJECTED (valid user locked out) | PreparedStatement = ACCEPTED
+
+=== Time cost per login check (5,000 repetitions, microseconds per call) ===
+  regex validation only         :    2.863 us
+  quote escaping only           :    0.730 us
+  whole unsafe query (concat)   :     54.1 us
+  whole PreparedStatement query :     99.0 us
