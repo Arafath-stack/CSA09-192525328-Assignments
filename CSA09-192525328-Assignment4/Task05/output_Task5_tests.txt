@@ -1,0 +1,77 @@
+== Style (a) frame implements ActionListener - original requirement
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected=' '              actual=' '              PASS
+  T6   dialog box shows the result                    expected='[0 messages recorded, last = -]' actual='[0 messages recorded, last = -]' PASS
+== Style (b) named inner class - original requirement
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected=' '              actual=' '              PASS
+  T6   dialog box shows the result                    expected='[0 messages recorded, last = -]' actual='[0 messages recorded, last = -]' PASS
+== Style (c) anonymous inner class - original requirement
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected=' '              actual=' '              PASS
+  T6   dialog box shows the result                    expected='[0 messages recorded, last = -]' actual='[0 messages recorded, last = -]' PASS
+== Style (d) lambda - original requirement
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected=' '              actual=' '              PASS
+  T6   dialog box shows the result                    expected='[0 messages recorded, last = -]' actual='[0 messages recorded, last = -]' PASS
+== Style (a) after the change (Enter + dialog)
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected='3.00 USD'       actual='3.00 USD'       PASS
+  T6   dialog box shows the result                    expected='[5 messages recorded, last = 3.00 USD]' actual='[5 messages recorded, last = 3.00 USD]' PASS
+== Style (b) after the change (Enter + dialog)
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected='3.00 USD'       actual='3.00 USD'       PASS
+  T6   dialog box shows the result                    expected='[5 messages recorded, last = 3.00 USD]' actual='[5 messages recorded, last = 3.00 USD]' PASS
+== Style (c) after the change (Enter + dialog)
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected='3.00 USD'       actual='3.00 USD'       PASS
+  T6   dialog box shows the result                    expected='[5 messages recorded, last = 3.00 USD]' actual='[5 messages recorded, last = 3.00 USD]' PASS
+== Style (d) after the change (Enter + dialog)
+  T1   1000 INR to USD via button                     expected='12.00 USD'      actual='12.00 USD'      PASS
+  T2   1000 INR to EUR via button                     expected='11.00 EUR'      actual='11.00 EUR'      PASS
+  T3   invalid amount 'abc'                           expected='Invalid amount' actual='Invalid amount' PASS
+  T4   empty amount                                   expected='Invalid amount' actual='Invalid amount' PASS
+  T5   Enter in the amount field                      expected='3.00 USD'       actual='3.00 USD'       PASS
+  T6   dialog box shows the result                    expected='[5 messages recorded, last = 3.00 USD]' actual='[5 messages recorded, last = 3.00 USD]' PASS
+
+== Complete-the-Code program Converter (lambda, Enter key included, result in the label)
+  C1   valid amount, button, USD                      expected='12.00 USD'      actual='12.00 USD'      PASS
+  C2   invalid amount, Enter key                      expected='Invalid amount' actual='Invalid amount' PASS
+  C3   valid amount, Enter key, EUR                   expected='5.50 EUR'       actual='5.50 EUR'       PASS
+
+== Listener objects (distinct) registered on the button and the field
+  ConvA    distinct listener objects: 1   (registrations: button 1 + field 0)
+  ConvB    distinct listener objects: 1   (registrations: button 1 + field 0)
+  ConvC    distinct listener objects: 1   (registrations: button 1 + field 0)
+  ConvD    distinct listener objects: 1   (registrations: button 1 + field 0)
+  ConvA2   distinct listener objects: 1   (registrations: button 1 + field 1)
+  ConvB2   distinct listener objects: 2   (registrations: button 1 + field 1)
+  ConvC2   distinct listener objects: 1   (registrations: button 1 + field 1)
+  ConvD2   distinct listener objects: 1   (registrations: button 1 + field 1)
+
+== Shared Action (alternative concept)
+  button -> 12.00 USD | menu item -> 12.00 USD | Ctrl+Enter -> 12.00 USD | Enter in field -> 12.00 USD | method reference -> 12.00 USD
+  one Action object serves 4 triggers; the button holds 1 listener(s), the menu item 1, the field 1
+
+Total checks: 51   passed: 51   failed: 0

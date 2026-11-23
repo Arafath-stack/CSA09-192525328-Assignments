@@ -1,0 +1,85 @@
+k,approach,rep,ns_per_dispatch
+3,one listener (if-else chain),0,10.94
+3,one listener (if-else chain),1,26.21
+3,one listener (if-else chain),2,11.10
+3,one listener (if-else chain),3,11.24
+3,one listener (if-else chain),4,10.93
+3,one listener (if-else chain),5,10.84
+3,one listener (if-else chain),6,11.38
+3,one listener object per button,0,4.30
+3,one listener object per button,1,4.59
+3,one listener object per button,2,4.62
+3,one listener object per button,3,4.47
+3,one listener object per button,4,4.91
+3,one listener object per button,5,4.70
+3,one listener object per button,6,4.51
+3,HashMap of actions,0,7.09
+3,HashMap of actions,1,6.58
+3,HashMap of actions,2,6.57
+3,HashMap of actions,3,7.02
+3,HashMap of actions,4,6.97
+3,HashMap of actions,5,6.53
+3,HashMap of actions,6,6.68
+10,one listener (if-else chain),0,33.19
+10,one listener (if-else chain),1,34.15
+10,one listener (if-else chain),2,32.22
+10,one listener (if-else chain),3,32.50
+10,one listener (if-else chain),4,29.99
+10,one listener (if-else chain),5,31.84
+10,one listener (if-else chain),6,33.46
+10,one listener object per button,0,4.30
+10,one listener object per button,1,4.77
+10,one listener object per button,2,4.63
+10,one listener object per button,3,4.54
+10,one listener object per button,4,4.63
+10,one listener object per button,5,4.45
+10,one listener object per button,6,4.52
+10,HashMap of actions,0,6.61
+10,HashMap of actions,1,6.66
+10,HashMap of actions,2,6.54
+10,HashMap of actions,3,6.21
+10,HashMap of actions,4,6.59
+10,HashMap of actions,5,9.82
+10,HashMap of actions,6,6.50
+100,one listener (if-else chain),0,430.70
+100,one listener (if-else chain),1,408.31
+100,one listener (if-else chain),2,414.08
+100,one listener (if-else chain),3,421.72
+100,one listener (if-else chain),4,375.87
+100,one listener (if-else chain),5,253.61
+100,one listener (if-else chain),6,249.50
+100,one listener object per button,0,4.59
+100,one listener object per button,1,4.37
+100,one listener object per button,2,4.30
+100,one listener object per button,3,4.45
+100,one listener object per button,4,4.30
+100,one listener object per button,5,4.28
+100,one listener object per button,6,4.35
+100,HashMap of actions,0,36.85
+100,HashMap of actions,1,51.35
+100,HashMap of actions,2,36.65
+100,HashMap of actions,3,52.72
+100,HashMap of actions,4,38.47
+100,HashMap of actions,5,16.33
+100,HashMap of actions,6,6.76
+1000,one listener (if-else chain),0,2334.20
+1000,one listener (if-else chain),1,2311.79
+1000,one listener (if-else chain),2,2348.45
+1000,one listener (if-else chain),3,2407.45
+1000,one listener (if-else chain),4,2363.22
+1000,one listener (if-else chain),5,2348.43
+1000,one listener (if-else chain),6,2304.55
+1000,one listener object per button,0,4.54
+1000,one listener object per button,1,4.55
+1000,one listener object per button,2,5.22
+1000,one listener object per button,3,4.79
+1000,one listener object per button,4,4.54
+1000,one listener object per button,5,4.56
+1000,one listener object per button,6,4.55
+1000,HashMap of actions,0,168.03
+1000,HashMap of actions,1,24.47
+1000,HashMap of actions,2,24.76
+1000,HashMap of actions,3,25.96
+1000,HashMap of actions,4,36.20
+1000,HashMap of actions,5,25.09
+1000,HashMap of actions,6,24.29

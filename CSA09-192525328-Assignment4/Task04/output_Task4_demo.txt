@@ -1,0 +1,11 @@
+== Task 4.1  Defective program: three clicks delivered to the window
+label text after 3 clicks : Clicks: 0   (field count = 0)
+
+== Task 4.2  First defect fixed, but dots drawn with getGraphics() instead of in paint()
+dark pixels on the surface right after the clicks : 78
+dark pixels after minimise + restore (repaint)     : 0   -> the dots are gone: paint() did not know them
+
+== Task 4.3  Repaired program (store points, draw them in paint())
+label text after 3 clicks : Clicks: 3
+dark pixels before minimise : 78   after restore : 78   (equal = dots survive)
+two more clicks -> label: Clicks: 5

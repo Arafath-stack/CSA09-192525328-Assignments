@@ -1,0 +1,6 @@
+departments  doctors/dept m total    us per department change       Map memory (bytes)
+4            3            12                              2.5                        0
+10           50           500                             5.5                    67096
+20           500          10000                          56.0                  1257840
+20           5000         100000                        547.1                 13301400
+(checksum 5553)

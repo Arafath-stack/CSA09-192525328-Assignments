@@ -1,0 +1,14 @@
+k        approach (worst case: the LAST button)    ns / dispatch    bytes for k listeners
+3        one listener (if-else chain)                      13.23        1 listener object
+3        one listener object per button                     4.59 40056 (about 13352 per listener)
+3        HashMap of actions                                 6.78        1 listener object
+10       one listener (if-else chain)                      32.48        1 listener object
+10       one listener object per button                     4.55 296 (about 29 per listener)
+10       HashMap of actions                                 6.99        1 listener object
+100      one listener (if-else chain)                     364.83        1 listener object
+100      one listener object per button                     4.38 2816 (about 28 per listener)
+100      HashMap of actions                                34.16        1 listener object
+1000     one listener (if-else chain)                    2345.44        1 listener object
+1000     one listener object per button                     4.68 28016 (about 28 per listener)
+1000     HashMap of actions                                46.97        1 listener object
+(checksum 2285168130)

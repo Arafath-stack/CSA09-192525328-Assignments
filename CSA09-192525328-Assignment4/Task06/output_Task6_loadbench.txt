@@ -1,0 +1,8 @@
+rows       approach                              load (ms) longest EDT freeze (ms)  model heap (KB)
+1000       load ALL rows on the EDT                    5.8                    8.2                0
+1000       one page (20 rows) per SwingWorker          0.7                    5.6                0
+10000      load ALL rows on the EDT                    6.9                    9.2              371
+10000      one page (20 rows) per SwingWorker          0.5                    5.4                0
+100000     load ALL rows on the EDT                   47.6                   50.2            12005
+100000     one page (20 rows) per SwingWorker          0.3                    5.0                0
+(data source: in-memory DAO; a real MySQL server adds network and query time to BOTH approaches)

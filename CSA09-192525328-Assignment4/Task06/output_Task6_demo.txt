@@ -1,0 +1,27 @@
+== Screen 1: registration form
+
+== Stage 5 demonstration: normal, invalid and duplicate registrations
+N1   normal registration: message                         expected=Registered Anitha Raj (192399001) for Battle of Bands. actual=Registered Anitha Raj (192399001) for Battle of Bands. PASS
+N2   normal registration: row stored                      expected=46                                             actual=46                                             PASS
+I1   invalid input #1                                     expected=Register number must be exactly 9 digits.      actual=Register number must be exactly 9 digits.      PASS
+I2   invalid input #2                                     expected=Name must be 2 to 60 letters (spaces, dots, apostrophes and hyphens allowed). actual=Name must be 2 to 60 letters (spaces, dots, apostrophes and hyphens allowed). PASS
+I3   invalid input #3                                     expected=Enter a valid e-mail address.                  actual=Enter a valid e-mail address.                  PASS
+I4   invalid input #4                                     expected=Select an event.                               actual=Select an event.                               PASS
+I5   invalid inputs store nothing                         expected=46                                             actual=46                                             PASS
+D1   duplicate registration: same student, same event     expected=Student 192399001 is already registered for Battle of Bands. actual=Student 192399001 is already registered for Battle of Bands. PASS
+D2   duplicate: warning dialog shown                      expected=Duplicate registration: Student 192399001 is already registered for Battle of Bands. actual=Duplicate registration: Student 192399001 is already registered for Battle of Bands. PASS
+D3   duplicate: nothing stored                            expected=46                                             actual=46                                             PASS
+D4   same student, DIFFERENT event is allowed             expected=Registered Anitha Raj (192399001) for Drama Fest. actual=Registered Anitha Raj (192399001) for Drama Fest. PASS
+
+== Screen 2: registrations table (paged, filtered)
+T1   page 1 of all events: 20 rows, label                 expected=20 | Page 1 of 3  (47 registrations)           actual=20 | Page 1 of 3  (47 registrations)           PASS
+T2   Next: page 2 shown                                   expected=Page 2 of 3  (47 registrations)                actual=Page 2 of 3  (47 registrations)                PASS
+T3   Next: last page has the remaining 7 rows             expected=7                                              actual=7                                              PASS
+T4   filter 'Battle of Bands': only that event, from page 1 expected=true | 1                                       actual=true | 1                                       PASS
+T5   filter count equals database count                   expected=11 registrations                               actual=11 registrations                               PASS
+E1   export CSV message                                   expected=Exported 11 registrations to registrations_battle_of_bands.csv actual=Exported 11 registrations to registrations_battle_of_bands.csv PASS
+E2   CSV has a header and one line per row                expected=12                                             actual=12                                             PASS
+   CSV header: Register No,Name,Email,Event,Registered At
+   CSV line 1: 192300002,Ravi E,ravi4@college.edu,Battle of Bands,2026-11-01 09:04:00
+
+Total: 18   passed: 18   failed: 0

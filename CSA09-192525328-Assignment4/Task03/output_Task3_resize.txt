@@ -1,0 +1,10 @@
+window       | results area (WxH)     | search row (WxH)       | query field width        | button row (WxH)      
+420x300      | 420x191                | 420x35                 | 202                      | 420x35                
+700x440      | 700x331                | 700x35                 | 202                      | 700x35                
+1000x640     | 1000x531               | 1000x35                | 202                      | 1000x35               
+
+window       | absolute: results area | absolute: query width   
+420x300      | 520x190                | 190                     
+700x440      | 520x190                | 190                     
+1000x640     | 520x190                | 190                     
+

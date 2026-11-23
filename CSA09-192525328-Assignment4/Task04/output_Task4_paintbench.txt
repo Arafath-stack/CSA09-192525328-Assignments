@@ -1,0 +1,10 @@
+n clicks  approach                               us per repaint         memory
+100       redraw n stored points                          116.1 ~2 KB (n Points)
+100       copy one BufferedImage                           23.9 468 KB (W x H x 4 bytes)
+1000      redraw n stored points                          909.2 ~27 KB (n Points)
+1000      copy one BufferedImage                           20.1 468 KB (W x H x 4 bytes)
+10000     redraw n stored points                         8069.4 ~273 KB (n Points)
+10000     copy one BufferedImage                           18.3 468 KB (W x H x 4 bytes)
+100000    redraw n stored points                        85914.9 ~2734 KB (n Points)
+100000    copy one BufferedImage                           21.6 468 KB (W x H x 4 bytes)
+(a java.awt.Point is about 24 bytes + a 4-byte list slot, so n Points = about 28 n bytes)

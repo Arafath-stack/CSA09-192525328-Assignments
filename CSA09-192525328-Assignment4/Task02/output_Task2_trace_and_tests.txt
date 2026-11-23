@@ -1,0 +1,25 @@
+== Event trace: the receptionist books a Cardiology appointment (events in the order they reached the handlers)
+ 1. DocumentEvent INSERT on patientId -> DocumentListener.insertUpdate
+ 2. ItemEvent DESELECTED '-- select --' on department -> ItemListener.itemStateChanged
+ 3. ItemEvent SELECTED 'Cardiology' on department -> ItemListener.itemStateChanged
+ 4. ItemEvent SELECTED 'Dr. Iyer' on doctor -> ItemListener.itemStateChanged
+ 5. ActionEvent 'Book appointment' on Book button -> ActionListener.actionPerformed
+ 6. DocumentEvent REMOVE on patientId -> DocumentListener.removeUpdate
+ 7. ItemEvent DESELECTED 'Cardiology' on department -> ItemListener.itemStateChanged
+ 8. ItemEvent SELECTED '-- select --' on department -> ItemListener.itemStateChanged
+
+== Tests
+A1   booking succeeds                                           expected=Booked: patient 123456 with Dr. Iyer (Cardiology) at 10:00. actual=Booked: patient 123456 with Dr. Iyer (Cardiology) at 10:00. PASS
+A2   form is cleared after a booking                            expected=false                                        actual=false                                        PASS
+A3   doctor list for Paediatrics has 4 doctors                  expected=4                                            actual=4                                            PASS
+A4   doctor list refreshed to the department chosen             expected=Dr. Khan,Dr. Das                             actual=Dr. Khan,Dr. Das                             PASS
+A5   doctor list refreshed again                                expected=Dr. Bose                                     actual=Dr. Bose                                     PASS
+A6   invalid patient id                                         expected=Patient ID must be 6 digits.                 actual=Patient ID must be 6 digits.                 PASS
+A7   doctor not selected                                        expected=Select a doctor.                             actual=Select a doctor.                             PASS
+A8   slot not selected                                          expected=Select a time slot.                          actual=Select a time slot.                          PASS
+A9   booking succeeds for Dr. Bose                              expected=true                                         actual=true                                         PASS
+A10  same doctor and slot twice                                 expected=Dr. Bose is already booked at 10:00.         actual=Dr. Bose is already booked at 10:00.         PASS
+A11  close guard: booking in progress (typed text)              expected=true                                         actual=true                                         PASS
+A12  close guard: nothing started                               expected=false                                        actual=false                                        PASS
+
+Total: 12  passed: 12  failed: 0

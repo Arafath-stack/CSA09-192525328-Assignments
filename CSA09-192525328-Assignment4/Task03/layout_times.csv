@@ -1,0 +1,22 @@
+design,rep,us_per_layout_pass
+nested BorderLayout + FlowLayout,0,21.26
+nested BorderLayout + FlowLayout,1,20.90
+nested BorderLayout + FlowLayout,2,16.86
+nested BorderLayout + FlowLayout,3,18.80
+nested BorderLayout + FlowLayout,4,16.35
+nested BorderLayout + FlowLayout,5,14.38
+nested BorderLayout + FlowLayout,6,16.05
+GridBagLayout,0,32.34
+GridBagLayout,1,19.94
+GridBagLayout,2,19.92
+GridBagLayout,3,20.72
+GridBagLayout,4,18.54
+GridBagLayout,5,20.26
+GridBagLayout,6,17.84
+absolute (null layout),0,2.85
+absolute (null layout),1,2.35
+absolute (null layout),2,2.48
+absolute (null layout),3,4.13
+absolute (null layout),4,2.37
+absolute (null layout),5,3.49
+absolute (null layout),6,2.39

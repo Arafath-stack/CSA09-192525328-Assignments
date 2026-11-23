@@ -1,0 +1,4 @@
+style (A): lines removed/changed 1, lines added 4, total lines touched 5
+style (B): lines removed/changed 1, lines added 4, total lines touched 5
+style (C): lines removed/changed 4, lines added 8, total lines touched 12
+style (D): lines removed/changed 1, lines added 7, total lines touched 8

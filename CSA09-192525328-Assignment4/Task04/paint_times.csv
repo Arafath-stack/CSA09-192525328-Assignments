@@ -1,0 +1,57 @@
+n,approach,rep,us_per_repaint
+100,redraw n stored points,0,148.71
+100,redraw n stored points,1,198.87
+100,redraw n stored points,2,98.76
+100,redraw n stored points,3,87.98
+100,redraw n stored points,4,90.38
+100,redraw n stored points,5,98.83
+100,redraw n stored points,6,89.26
+100,copy one BufferedImage,0,27.73
+100,copy one BufferedImage,1,19.52
+100,copy one BufferedImage,2,19.03
+100,copy one BufferedImage,3,28.38
+100,copy one BufferedImage,4,33.91
+100,copy one BufferedImage,5,19.41
+100,copy one BufferedImage,6,19.27
+1000,redraw n stored points,0,829.22
+1000,redraw n stored points,1,930.92
+1000,redraw n stored points,2,1100.10
+1000,redraw n stored points,3,946.18
+1000,redraw n stored points,4,941.43
+1000,redraw n stored points,5,810.32
+1000,redraw n stored points,6,806.16
+1000,copy one BufferedImage,0,21.73
+1000,copy one BufferedImage,1,22.72
+1000,copy one BufferedImage,2,20.27
+1000,copy one BufferedImage,3,18.95
+1000,copy one BufferedImage,4,18.99
+1000,copy one BufferedImage,5,18.86
+1000,copy one BufferedImage,6,19.04
+10000,redraw n stored points,0,8594.85
+10000,redraw n stored points,1,8019.47
+10000,redraw n stored points,2,7983.99
+10000,redraw n stored points,3,8010.93
+10000,redraw n stored points,4,7971.58
+10000,redraw n stored points,5,7964.67
+10000,redraw n stored points,6,7940.15
+10000,copy one BufferedImage,0,18.33
+10000,copy one BufferedImage,1,18.26
+10000,copy one BufferedImage,2,18.39
+10000,copy one BufferedImage,3,18.40
+10000,copy one BufferedImage,4,18.27
+10000,copy one BufferedImage,5,18.43
+10000,copy one BufferedImage,6,18.29
+100000,redraw n stored points,0,78126.08
+100000,redraw n stored points,1,79296.13
+100000,redraw n stored points,2,79254.50
+100000,redraw n stored points,3,100026.70
+100000,redraw n stored points,4,98274.64
+100000,redraw n stored points,5,82390.89
+100000,redraw n stored points,6,84035.40
+100000,copy one BufferedImage,0,20.73
+100000,copy one BufferedImage,1,20.79
+100000,copy one BufferedImage,2,24.22
+100000,copy one BufferedImage,3,20.63
+100000,copy one BufferedImage,4,20.17
+100000,copy one BufferedImage,5,21.59
+100000,copy one BufferedImage,6,22.95

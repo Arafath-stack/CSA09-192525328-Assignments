@@ -1,0 +1,10 @@
+--- Without @Override, misspelled mouseclicked (the original defect)
+    source line: public void mouseclicked(MouseEvent e) { }
+    compiled successfully: true
+--- With @Override, misspelled mouseclicked
+    source line: @Override public void mouseclicked(MouseEvent e) { }
+    compiled successfully: false
+    compiler message: Probe.java:4: error: method does not override or implement a method from a supertype
+--- With @Override, correct mouseClicked (the repair)
+    source line: @Override public void mouseClicked(MouseEvent e) { }
+    compiled successfully: true

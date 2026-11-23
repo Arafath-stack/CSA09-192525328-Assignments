@@ -1,0 +1,4 @@
+design                                 JPanel objects      layout pass time (us)       (sd)
+nested BorderLayout + FlowLayout                    5                       17.8        2.4
+GridBagLayout                                       1                       21.4        4.6
+absolute (null layout)                              1                        2.9        0.6

@@ -1,0 +1,10 @@
+== Screens (rendered off-screen from the real component tree)
+invalid register number  -> status: Register number must be exactly 9 digits.
+while the bank is working -> status: Processing payment, please wait... | Pay button enabled: false
+after the bank answered   -> status: Payment of Rs 12500.50 recorded for 192311001. | rows stored: 1
+Receipt button            -> dialog text: Fee receipt: RECEIPT|Register no : 192311001|Amount      : Rs 12500.50|Paid at     : 22-11-2026 07:17:21|Payments    : 1
+Clear button              -> register field = '', amount = ''
+
+== Is the window responsive? Longest gap between two EDT heartbeats (ms), bank delay = 600 ms
+original (sleep inside actionPerformed) :   602 ms   -> window frozen for the whole wait
+redesign (SwingWorker)                   :    76 ms   -> window stays responsive

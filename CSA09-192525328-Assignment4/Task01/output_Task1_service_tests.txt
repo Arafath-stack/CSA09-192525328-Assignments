@@ -1,0 +1,20 @@
+V1   empty register number                                          expected=Enter the register number.         actual=Enter the register number.         PASS
+V2   register number with letters                                   expected=Register number must be exactly 9 digits. actual=Register number must be exactly 9 digits. PASS
+V3   empty amount                                                   expected=Enter the amount.                  actual=Enter the amount.                  PASS
+V4   amount 'abc'                                                   expected=Amount must be a number, for example 12500.50. actual=Amount must be a number, for example 12500.50. PASS
+V5   negative amount                                                expected=Amount must be greater than zero.  actual=Amount must be greater than zero.  PASS
+V6   zero amount                                                    expected=Amount must be greater than zero.  actual=Amount must be greater than zero.  PASS
+V7   three decimal places                                           expected=Amount can have at most 2 decimal places. actual=Amount can have at most 2 decimal places. PASS
+V8   amount above the maximum                                       expected=Amount cannot exceed Rs 500000.00. actual=Amount cannot exceed Rs 500000.00. PASS
+V9   valid input                                                    expected=null                               actual=null                               PASS
+S1   SQL-injection text in the register number is rejected          expected=Register number must be exactly 9 digits. actual=Register number must be exactly 9 digits. PASS
+P1   valid payment succeeds and is stored                           expected=true / 1 row                       actual=true / 1 row                       PASS
+P2   bank declines amount above its limit: nothing stored           expected=false / 1 row                      actual=false / 1 row                      PASS
+P3   database failure is reported, not thrown                       expected=false                              actual=false                              PASS
+     message shown to the user: Could not complete the payment: connection refused
+R1   receipt for a paid student                                     expected=true                               actual=true                               PASS
+R2   receipt for an unknown student                                 expected=No payment found for 192311009.    actual=No payment found for 192311009.    PASS
+C1   original defect: action command compared with ==               expected=false                              actual=false                              PASS
+C2   the repair: equals()                                           expected=true                               actual=true                               PASS
+
+Total: 17   passed: 17   failed: 0
