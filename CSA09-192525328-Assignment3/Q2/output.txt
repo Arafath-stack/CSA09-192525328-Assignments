@@ -1,0 +1,74 @@
+$ (cd complete && javac -Xlint:all,-serial StorageDemo.java && java StorageDemo)
+Saved answer01.pdf
+Error: Could not store answer02.pdf
+Cause: Disk quota exceeded
+[exit code: 0]
+
+$ (cd complete/nocause && javac -Xlint:all,-serial StorageDemoNoCause.java && java StorageDemoNoCause)
+Saved answer01.pdf
+Error: Could not store answer02.pdf
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Throwable.getMessage()" because the return value of "ExamException.getCause()" is null
+	at StorageDemoNoCause.main(StorageDemoNoCause.java:30)
+[exit code: 1]
+
+$ (cd portal && javac -Xlint:all,-auxiliaryclass ExamExceptions.java Layers.java PortalTests.java ChainDemo.java && java PortalTests)
+1. valid submission                   student sees: Submission received: a1.pdf                                    | log:                                                              | PASS
+2. exam window closed                 student sees: Not accepted: The exam window for CSA09 closed at 12:00        | log: ExamClosedException                                          | PASS
+3. student not registered             student sees: Not accepted: Student S9 is not registered for CSA09           | log: NotRegisteredException                                       | PASS
+4. file larger than 500 KB            student sees: Not accepted: Answer file is 600 KB; the limit is 500 KB       | log: FileTooLargeException                                        | PASS
+5. storage quota exceeded (IOException) student sees: We could not save your answer. Please try again in a few minutes. | log: SubmissionStorageException <- cause: java.io.IOException: Disk quota exceeded: 570 KB of 500 KB | PASS
+6. blank student id (unchecked)       student sees: Invalid request.                                               | log: IllegalArgumentException                                     | PASS
+7. unknown course                     student sees: Not accepted: No exam window exists for XYZ99                  | log: ExamClosedException                                          | PASS
+[exit code: 0]
+
+$ (cd portal && java ChainDemo)
+================ cause KEPT ================
+getMessage()   = Could not store a2.pdf for S1
+getCause()     = java.io.IOException: Disk quota exceeded: 600 KB of 500 KB
+chain depth    = 1, root cause = IOException
+--- e.printStackTrace() ---
+SubmissionStorageException: Could not store a2.pdf for S1
+	at Storage.save(Layers.java:17)
+	at ExamService.submit(Layers.java:45)
+	at ChainDemo.main(ChainDemo.java:12)
+Caused by: java.io.IOException: Disk quota exceeded: 600 KB of 500 KB
+	at Storage.writeToDisk(Layers.java:22)
+	at Storage.save(Layers.java:15)
+	... 2 more
+================ cause DROPPED (re-thrown without the cause) ================
+getMessage()   = Could not store a2.pdf for S1
+getCause()     = null
+chain depth    = 0, root cause = SubmissionStorageException
+--- e.printStackTrace() ---
+SubmissionStorageException: Could not store a2.pdf for S1
+	at Storage.save(Layers.java:17)
+	at ExamService.submit(Layers.java:45)
+	at ChainDemo.main(ChainDemo.java:12)
+[exit code: 0]
+
+$ (cd alt && javac -Xlint:all,-auxiliaryclass UncheckedPortal.java StackCost.java && java UncheckedPortal)
+call 1 fine
+handled by the controller: Could not store file <- Disk quota exceeded
+If a caller forgets the try/catch, the exception travels to main and ends the program:
+Exception in thread "main" ExamClosedRuntime: window closed
+	at Svc.submit(UncheckedPortal.java:12)
+	at UncheckedPortal.main(UncheckedPortal.java:24)
+[exit code: 1]
+
+$ (cd alt && java StackCost)
+--- Checked versus unchecked: same cost ---
+create at depth 20: checked 964 ns, unchecked 878 ns
+
+--- Time and space to create ONE exception, by stack depth ---
+depth   1:      752 ns per exception,     728 bytes per exception
+depth  10:      642 ns per exception,     728 bytes per exception
+depth  50:     2530 ns per exception,    1416 bytes per exception
+depth 200:     9588 ns per exception,    4856 bytes per exception
+
+--- Effect of chaining (depth 20): every link has its own stack trace ---
+0 wrapping exception(s) + root IOException:     728 bytes in total (1 objects with a stack trace)
+1 wrapping exception(s) + root IOException:    1511 bytes in total (2 objects with a stack trace)
+2 wrapping exception(s) + root IOException:    2280 bytes in total (3 objects with a stack trace)
+4 wrapping exception(s) + root IOException:    3832 bytes in total (5 objects with a stack trace)
+[exit code: 0]
+
