@@ -1,0 +1,83 @@
+$ javac -Xlint:all,-auxiliaryclass TokenCounter.java TokenCounterIf.java Variants.java IfDemo.java SleepVsWait.java Transfers.java Alternatives.java && echo compiled
+compiled
+[exit code: 0]
+
+$ java TokenCounter
+Sum of tokens collected: 210 (expected 210)
+[exit code: 0]
+
+$ 10 runs of java TokenCounter
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+
+$ 10 runs of java TokenCounterIf (while changed to if in both methods)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 135 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 135 (expected 210)
+Sum of tokens collected: 200 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+Sum of tokens collected: 210 (expected 210)
+
+$ java IfDemo
+student-1 got 42, student-2 got 0, count afterwards = -1
+count is NEGATIVE: one student 'took' a token that never existed (stale data, here 0)
+[exit code: 0]
+
+$ java SleepVsWait
+thread H holds the lock and pauses for 300 ms; thread main tries to enter synchronized(lock) 50 ms later
+  H uses Thread.sleep(300): main had to wait 250 ms   (sleep keeps the lock)
+  H uses lock.wait(300)   : main entered after 0 ms   (wait releases the lock)
+[exit code: 0]
+
+$ java Transfers
+--- Two opposite transfers (A->B and B->A) with the unsafe order ---
+unsafe lock order: DEADLOCK - both threads still blocked after 1.5 s
+  ThreadMXBean.findDeadlockedThreads() reports 2 threads:
+   T1 (A->B) is BLOCKED, waiting for Account@723279cf which is owned by T2 (B->A)
+   T2 (B->A) is BLOCKED, waiting for Account@10f87f48 which is owned by T1 (A->B)
+
+--- The same two transfers with the lock-ordering rule ---
+ordered locks   : finished, balances A=950 B=1050 (total 2000)
+
+--- Stress test: 8 threads x 200 random transfers among 4 accounts, 5 s limit ---
+unsafe order : HUNG (deadlock), total money = 4000 (must stay 4000 when completed)
+ordered locks: completed, total money = 4000 (must stay 4000 when completed)
+[exit code: 0]
+
+$ java Variants
+--- Scenario of the assignment: 1 cook (20 tokens), 2 students (10 each), capacity 5; expected sum 210; 1000 runs each ---
+while + notifyAll      wrong sums    0, anomalies    0, hung runs 0
+if + notifyAll         wrong sums  191, anomalies  191, hung runs 0
+
+--- Harder scenario: 3 cooks, 3 students, capacity 1, 100 tokens per cook; 200 runs, 300 ms timeout each ---
+while + notifyAll      wrong sums    0, anomalies    0, hung (deadlocked/lost wake-up) runs 0 of 200
+if + notifyAll         wrong sums  200, anomalies  270, hung (deadlocked/lost wake-up) runs 0 of 200
+while + notify         wrong sums    0, anomalies    0, hung (deadlocked/lost wake-up) runs 200 of 200
+
+--- Counter size over time (Student A): 1 cook, 2 students, capacity 5 ---
+first 24 events (+ put, - take, number = tokens in the counter afterwards): +1 +2 +3 +4 +5 -4 -3 -2 -1 -0 +1 +2 +3 +4 +5 -4 -3 -2 -1 -0 +1 -0 +1 +2 
+minimum size seen = 0, maximum size seen = 5, sum collected = 210  -> the counter never exceeded 5 and never dropped below 0
+[exit code: 0]
+
+$ java Alternatives
+--- Producer-consumer: 1 cook, 2 students, capacity 5, 60,000 tokens ---
+wait/notifyAll counter 1533 ns per token, ArrayBlockingQueue 1595 ns per token
+space of the empty structure: wait/notify TokenCounter 72 bytes (int[5] + 3 ints), ArrayBlockingQueue 184 bytes (Object[5] + ReentrantLock + 2 Conditions)
+
+--- Transfers: 4 accounts, 4 threads x 20,000 random transfers, both locks needed ---
+lock ordering: 152 ns per transfer;  tryLock(20 ms): 69 ns per transfer, 0 transfers had to give up (money conserved: 4000)
+tryLock can itself deadlock-free fail: a transfer that times out must be retried or reported (livelock risk if every thread retries at the same moment).
+[exit code: 0]
+
