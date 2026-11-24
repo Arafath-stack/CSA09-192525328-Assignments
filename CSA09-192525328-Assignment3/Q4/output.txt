@@ -1,0 +1,121 @@
+$ javac -Xlint:all,-auxiliaryclass Stations.java RunVsStart.java LifeCycle.java PoolStations.java ThreadMemory.java && echo compiled
+compiled
+[exit code: 0]
+
+$ java Stations thread
+started; alive: true true true true
+after 35 ms main sees 4 station(s) alive
+  Station-3 finished, scanned 10
+  Station-2 finished, scanned 10
+  Station-1 finished, scanned 10
+  Station-4 finished, scanned 10
+TOTAL scanned = 40   finish order: [Station-1, Station-2, Station-3, Station-4]   (134 ms)
+[exit code: 0]
+
+$ java Stations runnable
+started; alive: true true true true
+after 35 ms main sees 4 station(s) alive
+  Station-1 finished, scanned 10
+  Station-3 finished, scanned 10
+  Station-2 finished, scanned 10
+  Station-4 finished, scanned 10
+TOTAL scanned = 40   finish order: [Station-1, Station-2, Station-4, Station-3]   (142 ms)
+[exit code: 0]
+
+$ java RunVsStart
+main thread is: main
+calling a.run() and b.run() (plain method calls):
+  run() executes in thread: main
+  run() executes in thread: main
+  took 201 ms (sequential: 100 + 100), a.isAlive()=false, state=NEW
+calling c.start() and d.start():
+  run() executes in thread: scanner-C
+  run() executes in thread: scanner-D
+  took 145 ms (parallel: about 100), c state after join = TERMINATED
+starting a finished thread again -> IllegalThreadStateException
+[exit code: 0]
+
+$ java LifeCycle
+sleeper before start()        : NEW
+sleeper right after start()   : RUNNABLE
+sleeper inside sleep(300)     : TIMED_WAITING
+waiter inside lock.wait()     : WAITING
+blocked trying to enter lock: BLOCKED
+joiner inside sleeper.join()  : WAITING
+sleeper after it finished     : TERMINATED, isAlive=false
+[exit code: 0]
+
+$ java PoolStations
+n = 400 scripts x 5 ms; ideal time = n/p x 5 ms (a single CPU core is enough because the work is waiting)
+threads p   measured ms     ideal ms
+1                  2063         2000
+2                  1029         1000
+4                   515          500
+8                   257          250
+16                  129          125
+32                   67           65
+
+Four stations as tasks: pool of 2 threads -> two stations run, then two more:
+  Station-1 on pool-19-thread-1 at 116 ms
+  Station-2 on pool-19-thread-2 at 134 ms
+  Station-3 on pool-19-thread-1 at 218 ms
+  Station-4 on pool-19-thread-2 at 229 ms
+[exit code: 0]
+
+$ java ThreadMemory 1000 1024
+1000 threads (stack size 1024 KB): resident memory grew by 73900 KB = 73.9 KB per thread; virtual stack address space reserved: 1000 MB
+
+$ java -Xss256k ThreadMemory 1000 256
+1000 threads (stack size 256 KB): resident memory grew by 73808 KB = 73.8 KB per thread; virtual stack address space reserved: 250 MB
+
+$ for i in 1..10: java Stations thread   (finish order of the four stations)
+[Station-3, Station-1, Station-4, Station-2]   (147 ms)
+[Station-1, Station-3, Station-4, Station-2]   (145 ms)
+[Station-2, Station-1, Station-3, Station-4]   (145 ms)
+[Station-3, Station-2, Station-1, Station-4]   (134 ms)
+[Station-3, Station-4, Station-1, Station-2]   (138 ms)
+[Station-1, Station-2, Station-4, Station-3]   (137 ms)
+[Station-1, Station-3, Station-4, Station-2]   (139 ms)
+[Station-1, Station-2, Station-3, Station-4]   (153 ms)
+[Station-3, Station-2, Station-4, Station-1]   (134 ms)
+[Station-3, Station-2, Station-1, Station-4]   (135 ms)
+
+$ for i in 1..10: java Stations runnable
+[Station-3, Station-1, Station-2, Station-4]   (139 ms)
+[Station-1, Station-2, Station-3, Station-4]   (134 ms)
+[Station-4, Station-3, Station-2, Station-1]   (137 ms)
+[Station-2, Station-1, Station-3, Station-4]   (141 ms)
+[Station-1, Station-4, Station-2, Station-3]   (144 ms)
+[Station-4, Station-2, Station-1, Station-3]   (134 ms)
+[Station-4, Station-1, Station-3, Station-2]   (146 ms)
+[Station-1, Station-3, Station-4, Station-2]   (143 ms)
+[Station-3, Station-4, Station-1, Station-2]   (148 ms)
+[Station-3, Station-1, Station-2, Station-4]   (144 ms)
+
+$ for i in 1..10: java Stations priority   (Station-1 = MIN_PRIORITY, Station-4 = MAX_PRIORITY)
+[Station-1, Station-4, Station-3, Station-2]   (137 ms)
+[Station-2, Station-3, Station-1, Station-4]   (135 ms)
+[Station-3, Station-2, Station-4, Station-1]   (141 ms)
+[Station-3, Station-4, Station-1, Station-2]   (144 ms)
+[Station-4, Station-3, Station-1, Station-2]   (146 ms)
+[Station-2, Station-3, Station-4, Station-1]   (134 ms)
+[Station-4, Station-3, Station-1, Station-2]   (134 ms)
+[Station-1, Station-3, Station-4, Station-2]   (145 ms)
+[Station-1, Station-3, Station-4, Station-2]   (141 ms)
+[Station-1, Station-3, Station-4, Station-2]   (137 ms)
+
+$ java Stations daemon   (Station-3 is a daemon thread with 40 scripts, the others 10; main does not wait for it)
+started; alive: true true true true
+after 35 ms main sees 4 station(s) alive
+  Station-2 finished, scanned 10
+  Station-1 finished, scanned 10
+  Station-4 finished, scanned 10
+TOTAL scanned = 41   finish order: [Station-4, Station-1, Station-2]   (139 ms)
+(second run)
+started; alive: true true true true
+after 35 ms main sees 4 station(s) alive
+  Station-2 finished, scanned 10
+  Station-4 finished, scanned 10
+  Station-1 finished, scanned 10
+TOTAL scanned = 41   finish order: [Station-1, Station-4, Station-2]   (137 ms)
+
