@@ -1,0 +1,10 @@
+catch java.lang.NumberFormatException
+run
+where
+up 4
+list
+locals
+print TrackedReader.open
+print TrackedWriter.open
+cont
+quit

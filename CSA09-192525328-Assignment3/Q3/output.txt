@@ -1,0 +1,143 @@
+$ javac -Xlint:all,-auxiliaryclass,-removal Reports.java LeakDemo.java SuppressedDemo.java AtomicWrite.java ManyFiles.java && echo compiled
+SuppressedDemo.java:16: warning: [try] auto-closeable resource a is never referenced in body of corresponding try statement
+        try (Res a = new Res("A (opened first)", false); Res b = new Res("B", false); Res c = new Res("C (opened last)", false)) {
+                 ^
+SuppressedDemo.java:16: warning: [try] auto-closeable resource b is never referenced in body of corresponding try statement
+        try (Res a = new Res("A (opened first)", false); Res b = new Res("B", false); Res c = new Res("C (opened last)", false)) {
+                                                             ^
+SuppressedDemo.java:16: warning: [try] auto-closeable resource c is never referenced in body of corresponding try statement
+        try (Res a = new Res("A (opened first)", false); Res b = new Res("B", false); Res c = new Res("C (opened last)", false)) {
+                                                                                          ^
+SuppressedDemo.java:20: warning: [try] auto-closeable resource a is never referenced in body of corresponding try statement
+        try (Res a = new Res("A", true); Res b = new Res("B", true)) {
+                 ^
+SuppressedDemo.java:20: warning: [try] auto-closeable resource b is never referenced in body of corresponding try statement
+        try (Res a = new Res("A", true); Res b = new Res("B", true)) {
+                                             ^
+Note: ManyFiles.java uses or overrides a deprecated API that is marked for removal.
+Note: Recompile with -Xlint:removal for details.
+5 warnings
+compiled
+[exit code: 0]
+
+$ java Reports
+--- Good data: the two correct versions must give the same report ---
+manual finally : store1.csv,805 | store2.csv,1260 | store3.csv,1715 | store4.csv,2170 | store5.csv,2625 | TOTAL,8575 | 
+try-with-res   : store1.csv,805 | store2.csv,1260 | store3.csv,1715 | store4.csv,2170 | store5.csv,2625 | TOTAL,8575 | 
+identical: true;  files open afterwards: manual 0, real descriptors above start: 0
+
+--- Failing data (store3.csv has 'abc' as a quantity on line 4) ---
+1a) manual close(), naive version:
+   exception: java.lang.NumberFormatException: For input string: "abc"
+   handles still open: readers 1, writers 1   (real descriptors above start: 2)
+   summary file content: []   <- empty: the buffered lines were never flushed
+1b) manual try-catch-finally:
+   [SEVERE] file=data_bad/store3.csv line=4 cause=java.lang.NumberFormatException: For input string: "abc"
+   handles still open: 0   summary: store1.csv,805 | store2.csv,1260 | store3.csv,FAILED | store4.csv,2170 | store5.csv,2625 | TOTAL,6860 | 
+2) try-with-resources:
+   [SEVERE] file=data_bad/store3.csv line=4 cause=java.lang.NumberFormatException: For input string: "abc"
+   handles still open: 0   summary: store1.csv,805 | store2.csv,1260 | store3.csv,FAILED | store4.csv,2170 | store5.csv,2625 | TOTAL,6860 | 
+same report for the failing input: true
+
+Files left open for the same failing input: naive manual = 2 (1 reader + 1 writer), manual finally = 0, try-with-resources = 0
+[exit code: 0]
+
+$ java SuppressedDemo
+1) closing order: resources are closed in REVERSE order of opening
+  open  A (opened first)
+  open  B
+  open  C (opened last)
+  body runs
+  close C (opened last)
+  close B
+  close A (opened first)
+
+2) body throws AND close() throws: the close exception is SUPPRESSED, the body exception is kept
+  open  A
+  open  B
+  close B
+  close A
+  caught: READ FAILED (the real problem)
+  suppressed: close of B failed
+  suppressed: close of A failed
+
+3) the same with manual finally: the original exception is LOST
+  open  manual
+  close manual
+  caught: close of manual failed   (suppressed count 0)
+[exit code: 0]
+
+$ java AtomicWrite
+direct write failed: disk error while writing store3
+direct write: file exists = true, content = [store1.csv,1500, store2.csv,2100]   <- closed properly, but INCOMPLETE and looks like a real report
+temp-file write failed: disk error while writing store3
+temp file + atomic rename: final report exists = false   <- no incomplete report is ever published
+successful run: final report = [store1.csv,1500, store2.csv,2100, store3.csv,900, TOTAL,4500]
+[exit code: 0]
+
+$ sh -c 'ulimit -n 256; java ManyFiles 3000 256'
+no close             processed   252 of 3000 files, peak open handles   251, time   102.7 ms, error: FileNotFoundException: /tmp/manyfiles/f252.csv (Too many open files)
+close in finally     processed  3000 of 3000 files, peak open handles     0, time   221.8 ms, error: none
+try-with-resources   processed  3000 of 3000 files, peak open handles     0, time   128.1 ms, error: none
+[exit code: 0]
+
+$ sh -c 'ulimit -n 256; java ManyFiles 200 256'
+no close             processed   200 of 200 files, peak open handles   200, time    72.6 ms, error: none
+close in finally     processed   200 of 200 files, peak open handles     0, time    27.7 ms, error: none
+try-with-resources   processed   200 of 200 files, peak open handles     0, time    10.5 ms, error: none
+[exit code: 0]
+
+$ java --add-modules jdk.jdi -m jdk.jdi/com.sun.tools.example.debug.tty.TTY -sourcepath . -classpath . LeakDemo   (jdb session: breakpoint, steps, exception catch, locals)
+Initializing jdb ...
+> Deferring breakpoint Reports.manualBuggy.
+It will be set after the class is loaded.
+> run LeakDemo
+Set uncaught java.lang.Throwable
+Set deferred uncaught java.lang.Throwable
+> 
+VM Started: Set deferred breakpoint Reports.manualBuggy
+
+Breakpoint hit: "thread=main", Reports.manualBuggy(), line=33 bci=0
+33            TrackedWriter w = new TrackedWriter(out);
+
+main[1] > 
+Step completed: "thread=main", Reports.manualBuggy(), line=34 bci=9
+34            long grand = 0;
+
+main[1] > 
+Step completed: "thread=main", Reports.manualBuggy(), line=35 bci=12
+35            for (int i = 1; i <= stores; i++) {
+
+main[1] Method arguments:
+dir = "data_bad"
+stores = 5
+out = "sum_debug.txt"
+Local variables:
+w = instance of TrackedWriter(id=797)
+grand = 0
+main[1] Deferring all java.lang.NumberFormatException.
+It will be set after the class is loaded.
+main[1] > Set deferred all java.lang.NumberFormatException
+
+Exception occurred: java.lang.NumberFormatException (to be caught at: LeakDemo.main(), line=6 bci=11)"thread=main", java.lang.Long.parseLong(), line=709 bci=216
+
+main[1]   [1] java.lang.Long.parseLong (Long.java:709)
+  [2] java.lang.Long.parseLong (Long.java:832)
+  [3] Reports.parse (Reports.java:28)
+  [4] Reports.manualBuggy (Reports.java:39)
+  [5] LeakDemo.main (LeakDemo.java:5)
+main[1] main[4] Method arguments:
+dir = "data_bad"
+stores = 5
+out = "sum_debug.txt"
+Local variables:
+w = instance of TrackedWriter(id=797)
+grand = 2065
+i = 3
+r = instance of TrackedReader(id=851)
+total = 220
+line = "bag,abc,300"
+main[4]  TrackedReader.open = 1
+main[4]  TrackedWriter.open = 1
+main[4]  r = "TrackedReader@37d18c4b"
+main[4] 

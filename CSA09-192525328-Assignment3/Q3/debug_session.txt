@@ -1,0 +1,53 @@
+Initializing jdb ...
+> Deferring breakpoint Reports.manualBuggy.
+It will be set after the class is loaded.
+> run LeakDemo
+Set uncaught java.lang.Throwable
+Set deferred uncaught java.lang.Throwable
+> 
+VM Started: Set deferred breakpoint Reports.manualBuggy
+
+Breakpoint hit: "thread=main", Reports.manualBuggy(), line=33 bci=0
+33            TrackedWriter w = new TrackedWriter(out);
+
+main[1] > 
+Step completed: "thread=main", Reports.manualBuggy(), line=34 bci=9
+34            long grand = 0;
+
+main[1] > 
+Step completed: "thread=main", Reports.manualBuggy(), line=35 bci=12
+35            for (int i = 1; i <= stores; i++) {
+
+main[1] Method arguments:
+dir = "data_bad"
+stores = 5
+out = "sum_debug.txt"
+Local variables:
+w = instance of TrackedWriter(id=797)
+grand = 0
+main[1] Deferring all java.lang.NumberFormatException.
+It will be set after the class is loaded.
+main[1] > Set deferred all java.lang.NumberFormatException
+
+Exception occurred: java.lang.NumberFormatException (to be caught at: LeakDemo.main(), line=6 bci=11)"thread=main", java.lang.Long.parseLong(), line=709 bci=216
+
+main[1]   [1] java.lang.Long.parseLong (Long.java:709)
+  [2] java.lang.Long.parseLong (Long.java:832)
+  [3] Reports.parse (Reports.java:28)
+  [4] Reports.manualBuggy (Reports.java:39)
+  [5] LeakDemo.main (LeakDemo.java:5)
+main[1] main[4] Method arguments:
+dir = "data_bad"
+stores = 5
+out = "sum_debug.txt"
+Local variables:
+w = instance of TrackedWriter(id=797)
+grand = 2065
+i = 3
+r = instance of TrackedReader(id=851)
+total = 220
+line = "bag,abc,300"
+main[4]  TrackedReader.open = 1
+main[4]  TrackedWriter.open = 1
+main[4]  r = "TrackedReader@37d18c4b"
+main[4] 
