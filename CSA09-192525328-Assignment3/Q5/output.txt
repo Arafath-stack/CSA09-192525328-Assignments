@@ -1,0 +1,100 @@
+$ javac -Xlint:all,-auxiliaryclass SeatBooking.java SeatBookingUnsafe.java SeatBookingYield.java RaceLab.java StaticSync.java Alternatives.java && echo compiled
+compiled
+[exit code: 0]
+
+$ java SeatBooking
+Seats sold: 10
+[exit code: 0]
+
+$ 10 runs of the UNSYNCHRONIZED TODO 1 (java SeatBookingUnsafe)
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+
+$ 10 runs of the unsynchronized version with Thread.yield() between check and update (java SeatBookingYield)
+Seats sold: 10
+Seats sold: 14
+Seats sold: 14
+Seats sold: 14
+Seats sold: 12
+Seats sold: 13
+Seats sold: 10
+Seats sold: 14
+Seats sold: 14
+Seats sold: 15
+
+$ 10 runs of the synchronized TODO 1 (java SeatBooking)
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+Seats sold: 10
+
+$ java RaceLab
+--- Student A: a test that reliably reproduces double booking (16 threads, all start together, 160 attempts, 10 seats) ---
+run  1: seats sold  13 (should be 10), seats sold more than once  2, counter says  13
+run  2: seats sold  17 (should be 10), seats sold more than once  5, counter says  17
+run  3: seats sold  14 (should be 10), seats sold more than once  4, counter says  14
+run  4: seats sold  13 (should be 10), seats sold more than once  2, counter says  13
+run  5: seats sold  16 (should be 10), seats sold more than once  5, counter says  16
+run  6: seats sold  22 (should be 10), seats sold more than once  6, counter says  22
+run  7: seats sold  20 (should be 10), seats sold more than once  7, counter says  20
+run  8: seats sold  17 (should be 10), seats sold more than once  4, counter says  17
+run  9: seats sold  14 (should be 10), seats sold more than once  3, counter says  14
+run 10: seats sold  14 (should be 10), seats sold more than once  3, counter says  14
+--- same test with the two synchronized versions ---
+run 1: synchronized method sold 10 (doubles 0), synchronized block sold 10 (doubles 0)
+run 2: synchronized method sold 10 (doubles 0), synchronized block sold 10 (doubles 0)
+run 3: synchronized method sold 10 (doubles 0), synchronized block sold 10 (doubles 0)
+
+--- Student B: time for 10,000 bookings (16 threads, 2,000 seats, 20 microseconds payment wait per booking outside the critical section) ---
+version                   time ms   seats sold double bookings
+no synchronization             59         2000              0
+synchronized method           850         2000              0
+synchronized block             53         2000              0
+[exit code: 0]
+
+$ java StaticSync
+  inside synchronized method/block(this): holds this-lock = true, class-lock = false
+  inside static synchronized / block(Screen.class): holds this-lock = false, class-lock = true
+shared static counter, 4 threads x 20,000 increments (correct total 80,000):
+  instance lock (2 screens): 40000      static lock: 80000
+  instance lock (2 screens): 40000      static lock: 80000
+  instance lock (2 screens): 40000      static lock: 80000
+A synchronized instance method locks only its own object, so two screens do NOT exclude each other when they update a static (shared) variable.
+[exit code: 0]
+
+$ java Alternatives
+time per booking attempt in ns, 8 threads x 500,000 attempts; correct = every seat sold exactly once
+
+HIGH contention: 10 seats
+  synchronized           21.6 ns per attempt, seats sold 10 of 10
+  AtomicBoolean CAS       8.3 ns per attempt, seats sold 10 of 10
+  ReentrantLock          24.4 ns per attempt, seats sold 10 of 10
+  ConcurrentHashMap      10.6 ns per attempt, seats sold 10 of 10
+
+LOW contention: 100,000 seats
+  synchronized           20.8 ns per attempt, seats sold 100000 of 100000
+  AtomicBoolean CAS      12.4 ns per attempt, seats sold 100000 of 100000
+  ReentrantLock          24.7 ns per attempt, seats sold 100000 of 100000
+  ConcurrentHashMap      52.6 ns per attempt, seats sold 100000 of 100000
+
+Extra space for s = 100,000 seats (exact bytes allocated while building the structure):
+  synchronized      :   100824 bytes (boolean[], 1.0 bytes per seat)
+  AtomicBoolean CAS :  2000824 bytes (array of references + one AtomicBoolean object per seat, 20.0 bytes per seat)
+  ReentrantLock     :   100880 bytes (boolean[] + one lock object, 1.0 bytes per seat)
+  ConcurrentHashMap :  6896600 bytes after booking all seats (one entry per booked seat, 69.0 bytes per seat)
+[exit code: 0]
+
