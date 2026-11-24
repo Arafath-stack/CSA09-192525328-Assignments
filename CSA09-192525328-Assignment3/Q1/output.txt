@@ -1,0 +1,116 @@
+$ javac -Xlint:all Atm.java AtmTests.java UncaughtDemo.java FinallyDemo.java ErrorDemo.java SingleCatch.java AtmCodes.java ExceptionCost.java && echo compiled
+Atm.java:11: warning: [serial] serializable class AtmException has no definition of serialVersionUID
+class AtmException extends Exception { AtmException(String m) { super(m); } }
+^
+Atm.java:12: warning: [serial] serializable class InsufficientFundsException has no definition of serialVersionUID
+class InsufficientFundsException extends AtmException { InsufficientFundsException(int shortBy) { super("Insufficient funds: short by Rs " + shortBy); } }
+^
+Atm.java:13: warning: [serial] serializable class AccountNotFoundException has no definition of serialVersionUID
+class AccountNotFoundException extends AtmException { AccountNotFoundException(int acc) { super("Account " + acc + " not found"); } }
+^
+ExceptionCost.java:3: warning: [serial] serializable class Plain has no definition of serialVersionUID
+    static class Plain extends Exception { Plain(String m) { super(m); } }
+           ^
+ExceptionCost.java:4: warning: [serial] serializable class NoTrace has no definition of serialVersionUID
+    static class NoTrace extends Exception { NoTrace(String m) { super(m, null, false, false); } }   // no stack trace captured
+           ^
+5 warnings
+compiled
+[exit code: 0]
+
+$ echo '1001 500' | java Atm
+ATM ready
+Dispensed Rs 500, balance Rs 4500
+[exit code: 0]
+
+$ echo '1001 500' | java Atm nofile.txt
+ATM out of service: card-reader file missing (nofile.txt (No such file or directory))
+[exit code: 0]
+
+$ java AtmTests
+ 1 valid withdrawal                   input="1001 500"   -> Dispensed Rs 500, balance Rs 4500              | none                                                       | finally ran: yes
+ 2 exact balance                      input="1002 150"   -> Dispensed Rs 150, balance Rs 0                 | none                                                       | finally ran: yes
+ 3 letters instead of account         input="abc 500"    -> Invalid input: InputMismatchException          | catch 1: InputMismatchException | IllegalArgumentException | finally ran: yes
+ 4 letters instead of amount          input="1001 5x0"   -> Invalid input: InputMismatchException          | catch 1: InputMismatchException | IllegalArgumentException | finally ran: yes
+ 5 negative amount                    input="1001 -50"   -> Invalid input: IllegalArgumentException (Amount must be positive: -50) | catch 1: InputMismatchException | IllegalArgumentException | finally ran: yes
+ 6 zero amount                        input="1001 0"     -> Invalid input: IllegalArgumentException (Amount must be positive: 0) | catch 1: InputMismatchException | IllegalArgumentException | finally ran: yes
+ 7 more than the balance              input="1002 500"   -> Refused: Insufficient funds: short by Rs 350   | catch 2: AccountNotFoundException | InsufficientFundsException | finally ran: yes
+ 8 unknown account                    input="9999 100"   -> Refused: Account 9999 not found                | catch 2: AccountNotFoundException | InsufficientFundsException | finally ran: yes
+ 9 amount missing                     input="1001"       -> Input ended too early                          | catch 3: NoSuchElementException                            | finally ran: yes
+10 empty input                        input=""           -> Input ended too early                          | catch 3: NoSuchElementException                            | finally ran: yes
+11 card-reader file missing           file=nofile.txt                 -> ATM out of service: card-reader file missing (nofile.txt (No such file or directory)) | catch FileNotFoundException                                | finally ran: yes
+12 card-reader file corrupt           file=cardreader_corrupt.txt     -> ATM out of service: Card-reader file is corrupt <- cause: java.lang.NumberFormatException: For input string: "abc" | catch IOException                                          | finally ran: yes
+[exit code: 0]
+
+$ java UncaughtDemo
+before
+Exception in thread "main" java.lang.NumberFormatException: For input string: "12x"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:778)
+	at UncaughtDemo.readAmount(UncaughtDemo.java:6)
+	at UncaughtDemo.dispense(UncaughtDemo.java:9)
+	at UncaughtDemo.main(UncaughtDemo.java:14)
+[exit code: 1]
+
+$ javac ErrCatchOrder.java
+ErrCatchOrder.java:7: error: exception NumberFormatException has already been caught
+        } catch (NumberFormatException e) {            // ... narrower can never be reached
+          ^
+1 error
+[exit code: 1]
+
+$ javac ErrMultiCatch.java
+ErrMultiCatch.java:8: error: Alternatives in a multi-catch statement cannot be related by subclassing
+        } catch (InputMismatchException | NoSuchElementException e) {   // InputMismatchException IS-A NoSuchElementException
+                                          ^
+  Alternative InputMismatchException is a subclass of alternative NoSuchElementException
+1 error
+[exit code: 1]
+
+$ java FinallyDemo
+1) return inside try:
+  try: returning 1
+  finally ran although try executed return
+2) uncaught exception inside try:
+  finally ran although the exception is not caught here
+  caught later: boom
+3) return in finally replaces the result: 2
+4) System.exit() inside try: finally does NOT run
+  try: calling System.exit(0)
+[exit code: 0]
+
+$ java ErrorDemo
+StackOverflowError after 23306 nested calls (an Error, not an Exception)
+OutOfMemoryError: Requested array size exceeds VM limit
+Error is a sibling of Exception under Throwable: true, true
+[exit code: 0]
+
+$ java SingleCatch
+letters          -> Sorry, something went wrong
+negative amount  -> Sorry, something went wrong
+too much         -> Sorry, something went wrong
+programming bug  -> Sorry, something went wrong   <- an ArrayIndexOutOfBoundsException is hidden as well
+[exit code: 0]
+
+$ java AtmCodes
+"1001 500"   -> code 0
+"abc 500"    -> code -1
+"1001 -50"   -> code -2
+"1002 500"   -> code -3
+"9999 100"   -> code -4
+"1001"       -> code -6
+""           -> code -6
+missing file -> code -5
+Every caller must test the returned code after every call (7 distinct codes here); forgetting one silently ignores the failure.
+[exit code: 0]
+
+$ java ExceptionCost
+call depth  5: error code     5.3 ns | exception with stack trace     656.0 ns | exception without stack trace   139.9 ns  (per failed call)
+call depth 50: error code    51.8 ns | exception with stack trace    3778.7 ns | exception without stack trace  1908.8 ns  (per failed call)
+
+call depth  5: bytes allocated per failure: exception  728.8, exception without trace  40.8, error code  0.8
+call depth 50: bytes allocated per failure: exception 1416.8, exception without trace  40.8, error code  0.8
+getStackTrace() materialises 1 StackTraceElement objects (952 more bytes) only when the trace is read
+[exit code: 0]
+
